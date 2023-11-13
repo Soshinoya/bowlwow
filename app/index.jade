@@ -8,6 +8,7 @@ html(lang='ru')
         link(rel="stylesheet" href="css/style.min.css")
     body.body
         include ./components/templates/basicTemplate.jade
+        include ./components/templates/section.jade
         include ./components/atoms/DownloadButton.jade
 
         +basicTemplate()
@@ -52,9 +53,16 @@ html(lang='ru')
                 .promotion__line--right
                 img(class="promotion__image-bowl" src="./images/content/promotion-bowl.png" alt="миска" loading="lazy")
                 img(class="promotion__image-dog" src="./images/content/indoor-plant-wooden-floor.png" alt="собака" loading="lazy")
-
+            +section('white', 'packages', 'Упаковки')
+                .packages__image
+                    img(src="./images/content/packages.png", alt="упаковки")
+                .packages__dog
+                    //- img(src="./images/content/packages-dog.png", alt="Собака")
+                .packages__cat
+                    img(src="./images/content/packages-cat.png", alt="Кот")
 
 
             //- svg
             //-     use(xlink:href="./images/sprite.svg#phone")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js")
     script(src="js/main.min.js" defer)

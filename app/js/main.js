@@ -27,5 +27,5 @@ const promotionImgDog = document.querySelector('.promotion__image-dog')
 const promotionContent = document.querySelector('.promotion__content')
 
 if (window.matchMedia('(max-width: 768px)').matches) {
-    promotionContent.style.paddingTop = `${promotionImgDog.getBoundingClientRect().height}px`
+    promotionContent.style.paddingTop = `${promotionImgDog.getBoundingClientRect().height - 75 - 47 - 45}px`
 }

@@ -1,0 +1,8 @@
+mixin section(variant, sectionName, title)
+    section(class="#{sectionName} #{sectionName}--#{variant}")
+        .container
+            div(class="#{sectionName}__inner")
+                div(class="#{sectionName}__header section-template__header")
+                    h3(class="#{sectionName}__title section-template__header-title")= title
+                div(class="#{sectionName}__body")
+                    block

@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger)
+
 // Анимация секции Promotion
 const promotionMainTl = gsap.timeline()
 
@@ -14,9 +16,9 @@ const promotionFrameTl = gsap.timeline({
             .to('.promotion__download-button', { y: 0, opacity: 1, duration: 1 }, '-=1')
             .to('.promotion__image-bowl', {
                 top: window.matchMedia('(max-width: 768px)').matches
-                    ? window.matchMedia('(max-width: 480px)').matches
-                        ? -50
-                        : -200
+                    ? window.matchMedia('(max-width: 380px)').matches
+                        ? -115
+                        : -260
                     : -130,
                 duration: 1
             }, '-=1')
@@ -75,3 +77,29 @@ const toggleMenu = () => {
         menuNavItemsTl.to('.menu-nav__item', { x: '100%', opacity: 0, duration: .12 })
     }
 }
+
+// Упаковки
+gsap.fromTo('.section-template__header-title', { y: '-200%', opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+
+
+
+const packagesAnimalsTl = gsap.timeline({
+    onComplete() { }
+})
+// packagesAnimalsTl.set('.packages__cat', { left: '-100%', bottom: 0 })
+
+// packagesAnimalsTl.fromTo('.packages__dog', { left: '-100%' }, { left: 0, duration: .5 })
+
+const catElement = document.querySelector('.packages__cat')
+
+ScrollTrigger.create({
+    trigger: ".packages",
+    start: "top top",
+    // endTrigger: ".third-section",
+    end: "bottom top",
+    pin: catElement,
+    pinSpacing: false,
+    left: '222px',
+    duration: .5,
+    delay: .5
+})

@@ -66,6 +66,10 @@
         display: none;
     }
 
+    .download-button {
+        padding: 18px 42px;
+    }
+
     .promotion {
         &__content {
             padding-bottom: 123px;
@@ -77,6 +81,7 @@
 
         &__subtitle {
             margin-bottom: 10px;
+            font-size: 20px;
         }
 
         &__logo {
@@ -101,6 +106,7 @@
             height: 542px;
             object-fit: cover;
             right: 0;
+            top: -75px;
         }
     }
 
@@ -136,8 +142,15 @@
 @media (max-width: 480px) {
     .promotion {
         &__image-bowl {
-            height: 174px;
-            right: 80px;
+            right: 76px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .promotion {
+        &__image-bowl {
+            height: 220px;
         }
     }
 }

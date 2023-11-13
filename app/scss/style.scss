@@ -132,7 +132,7 @@
 
     &__burger-link {
         position: relative;
-        z-index: 1;
+        z-index: 2;
 
         a {
             @include font(20px, 120%, $black-color) {
@@ -241,6 +241,31 @@
         &:hover {
             background-position: 0;
         }
+    }
+}
+
+.packages {
+    position: relative;
+    padding: 120px 0 180px;
+    background-color: #EBEBEB;
+
+    &__title::before {
+        content: '02';
+    }
+
+    &__body {
+        margin-top: 74px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__dog {
+        position: fixed;
+        bottom: 20px;
+    }
+
+    &__cat {
+        position: relative;
     }
 }
 
