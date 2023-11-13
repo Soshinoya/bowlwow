@@ -12,8 +12,12 @@
 
 .promotion {
     &__wrapper {
+        background-color: $bg-color;
+    }
+
+    &__content {
         position: relative;
-        height: 100vh;
+        padding: 63px 0 135px;
 
         @include pseudo-elem(after, "", absolute, null, null, 72px, 50%) {
             width: 16px;
@@ -21,21 +25,14 @@
             transform: translateX(-50%);
             background-image: url(../images/icons/arrow-down.svg);
             cursor: pointer;
+            z-index: 1;
         }
     }
 
-    &__bg {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: $bg-color;
-        z-index: -1;
-    }
-
-    &__content {
-        padding: 63px 0 135px;
+    &__body,
+    .download-button {
+        position: relative;
+        z-index: 1;
     }
 
     &__body {
@@ -81,6 +78,7 @@
     &__line--right {
         background-color: $orange-color;
         position: fixed;
+        z-index: 1;
     }
 
     &__line--left,
@@ -107,13 +105,13 @@
     &__image-bowl {
         position: absolute;
         right: 445px;
+        z-index: 1;
     }
 
     &__image-dog {
         position: absolute;
         top: 0;
         right: 0;
-        z-index: -1;
         transition: right .2s $transitionTimingFunc;
     }
 }
@@ -122,9 +120,9 @@
     padding-top: 47px;
 
     &__container {
-        max-width: 1438px;
+        max-width: 1538px;
+        padding: 0 70px;
         margin: 0 auto;
-        padding: 0 20px;
     }
 
     &__inner {
@@ -132,11 +130,16 @@
         justify-content: flex-end;
     }
 
-    &__burger-link a {
-        @include font(20px, 120%, $black-color) {
-            @extend %stratos-lc-web-500;
-            text-transform: uppercase;
-            cursor: pointer;
+    &__burger-link {
+        position: relative;
+        z-index: 1;
+
+        a {
+            @include font(20px, 120%, $black-color) {
+                @extend %stratos-lc-web-500;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
         }
     }
 }
@@ -149,7 +152,6 @@
     left: 0;
     padding: 60px;
     background-color: #f5f8fd;
-    z-index: 1;
 
     // Слева - направа
     // clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
@@ -166,6 +168,9 @@
 
         // Справа - налево
         clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+
+        z-index: 20;
+        overflow-y: scroll;
     }
 
     &__inner {
@@ -224,6 +229,7 @@
             text-transform: uppercase;
             @extend %stratos-lc-web-500;
         }
+
         color: transparent;
         background-image: linear-gradient(90deg, $red-color 50%, $black-color 50%);
         background-position: 100%;

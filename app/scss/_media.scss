@@ -68,8 +68,11 @@
 
     .promotion {
         &__content {
-            margin-top: 450px;
-            padding-top: 0;
+            padding-bottom: 123px;
+
+            &::after {
+                bottom: 50px;
+            }
         }
 
         &__subtitle {
@@ -100,6 +103,14 @@
             right: 0;
         }
     }
+
+    .promotion-header {
+        padding-top: 20px;
+
+        &__container {
+            padding: 0 20px;
+        }
+    }
 }
 
 @media (max-width: 600px) {
@@ -119,5 +130,14 @@
 @media (max-width: 576px) {
     .menu {
         padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .promotion {
+        &__image-bowl {
+            height: 174px;
+            right: 80px;
+        }
     }
 }

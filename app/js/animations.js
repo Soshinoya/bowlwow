@@ -12,7 +12,14 @@ const promotionFrameTl = gsap.timeline({
         promotionMainTl
             .to('.promotion__body', { x: 0, opacity: 1, duration: 1 })
             .to('.promotion__download-button', { y: 0, opacity: 1, duration: 1 }, '-=1')
-            .to('.promotion__image-bowl', { top: -130, duration: 1 }, '-=1')
+            .to('.promotion__image-bowl', {
+                top: window.matchMedia('(max-width: 768px)').matches
+                    ? window.matchMedia('(max-width: 480px)').matches
+                        ? -50
+                        : -200
+                    : -130,
+                duration: 1
+            }, '-=1')
             .to('.promotion__image-dog', { opacity: 1, duration: 1 }, '-=1')
     },
     defaults: {
@@ -21,29 +28,33 @@ const promotionFrameTl = gsap.timeline({
     }
 })
 
-promotionFrameTl.fromTo('.promotion__line--left', {
-    bottom: '100vh'
-}, {
-    bottom: 0
-}).fromTo('.promotion__line--bottom', {
-    right: '100vw'
-}, {
-    right: 0
-}, '-=2').fromTo('.promotion__line--right', {
-    top: '100vh'
-}, {
-    top: 0
-}, '-=2')
+const promotionMatchMediaAfterPhone = gsap.matchMedia()
+
+// Анимировать рамку, если окно больше 768px в ширину
+promotionMatchMediaAfterPhone.add('(min-width: 768px)', () => {
+    promotionFrameTl.fromTo('.promotion__line--left', {
+        bottom: '100vh'
+    }, {
+        bottom: 0
+    }).fromTo('.promotion__line--bottom', {
+        right: '100vw'
+    }, {
+        right: 0
+    }, '-=2').fromTo('.promotion__line--right', {
+        top: '100vh'
+    }, {
+        top: 0
+    }, '-=2')
+})
 
 // Анимация бургер меню
-
 const menuNavItemsTl = gsap.timeline({ delay: 0.5 })
 
 const toggleMenu = () => {
     const burgerMenu = document.querySelector('.menu')
     burgerMenu.classList.toggle('menu--active')
     if (burgerMenu.classList.contains('menu--active')) {
-        document.body.style.overflow = 'hidden'
+        // document.body.style.overflow = 'hidden'
 
         gsap.to(['.menu__left-logo', '.menu__left-language', '.menu__close'], { opacity: 1, delay: .5, duration: 1 })
 
@@ -57,7 +68,7 @@ const toggleMenu = () => {
 
         animateItems()
     } else {
-        document.body.style.overflow = 'auto'
+        // document.body.style.overflow = 'auto'
 
         gsap.to(['.menu__left-logo', '.menu__left-language', '.menu__close'], { opacity: 0, duration: 1 })
 
