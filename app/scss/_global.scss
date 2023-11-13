@@ -1,0 +1,62 @@
+html,
+body {
+    height: 100%;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body.body {
+    display: flex;
+    flex-direction: column;
+    @include font(16px, 162%, $black-color) {
+        @extend %stratos-lc-web-400;
+    }
+}
+
+.container {
+    padding: 0 20px;
+}
+
+h1 {
+    @include font(70px, 120%) {
+        @extend %stratos-lc-web-700;
+    }
+}
+
+h2 {
+    @include font(30px, normal, $black-color);
+}
+
+h3 {
+    @include font(24px, 120%) {
+        @extend %stratos-lc-web-500;
+        text-transform: uppercase;
+    }
+}
+
+.download-button {
+    border: 2px solid $black-color;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 23px 42px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    svg {
+        width: 17.5px;
+        height: 17.5px;
+    }
+
+    @include font(null, 120%) {
+        @extend %stratos-lc-web-500;
+        letter-spacing: 0.16px;
+        text-transform: uppercase;
+    }
+}

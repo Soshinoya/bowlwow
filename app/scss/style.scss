@@ -1,0 +1,241 @@
+@import "vars";
+@import "mixins";
+@import "functions";
+@import "fonts";
+@import "libs";
+@import "reset";
+@import "global";
+
+* {
+    appearance: none;
+}
+
+.promotion {
+    &__wrapper {
+        position: relative;
+        height: 100vh;
+
+        @include pseudo-elem(after, "", absolute, null, null, 72px, 50%) {
+            width: 16px;
+            height: 42px;
+            transform: translateX(-50%);
+            background-image: url(../images/icons/arrow-down.svg);
+            cursor: pointer;
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $bg-color;
+        z-index: -1;
+    }
+
+    &__content {
+        padding: 63px 0 135px;
+    }
+
+    &__body {
+        max-width: 552px;
+    }
+
+    &__subtitle {
+        margin-bottom: 20px;
+    }
+
+    &__logo {
+        margin-bottom: 60px;
+
+        svg {
+            width: 381px;
+            height: 82px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 60px;
+
+        &:first-of-type {
+            margin-bottom: 26px;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+
+        img {
+            @include image-default();
+        }
+    }
+
+    &__line--left,
+    &__line--bottom,
+    &__line--right {
+        background-color: $orange-color;
+        position: fixed;
+    }
+
+    &__line--left,
+    &__line--right {
+        width: 50px;
+    }
+
+    &__line--left {
+        top: 0;
+        left: 0;
+    }
+
+    &__line--bottom {
+        height: 50px;
+        left: 0;
+        bottom: 0;
+    }
+
+    &__line--right {
+        bottom: 0;
+        right: 0;
+    }
+
+    &__image-bowl {
+        position: absolute;
+        right: 445px;
+    }
+
+    &__image-dog {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        transition: right .2s $transitionTimingFunc;
+    }
+}
+
+.promotion-header {
+    padding-top: 47px;
+
+    &__container {
+        max-width: 1438px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__burger-link a {
+        @include font(20px, 120%, $black-color) {
+            @extend %stratos-lc-web-500;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 60px;
+    background-color: #f5f8fd;
+    z-index: 1;
+
+    // Слева - направа
+    // clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+
+    // Справа - налево
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+
+    transition: clip-path 0.5s;
+    will-change: clip-path;
+
+    &.menu--active {
+        // Слева - направа
+        // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+        // Справа - налево
+        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    }
+
+    &__inner {
+        display: flex;
+        height: 100%;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__left-logo svg {
+        width: 220px;
+        height: 48px;
+    }
+
+    &__left-logo,
+    &__left-language,
+    &__close {
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+
+.menu-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    &__item {
+        position: relative;
+        padding-left: 37px;
+        opacity: 0;
+        transform: translateX(100%);
+
+        h3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-transform: uppercase;
+            line-height: 120%;
+            @extend %stratos-lc-web-400;
+        }
+    }
+
+    &__item-link {
+        @include font(72px, 120%, $black-color) {
+            text-transform: uppercase;
+            @extend %stratos-lc-web-500;
+        }
+        color: transparent;
+        background-image: linear-gradient(90deg, $red-color 50%, $black-color 50%);
+        background-position: 100%;
+        background-size: 200% 100%;
+        background-clip: text;
+
+        transition: background-position .5s ease;
+
+        &:hover {
+            background-position: 0;
+        }
+    }
+}
+
+@import "media";

@@ -1,0 +1,6 @@
+mixin downloadButton(link, customClass, text)
+    a(href=link)
+        button(class='download-button #{customClass}')
+            svg
+                use(xlink:href="../../images/sprite.svg#download")
+            = text

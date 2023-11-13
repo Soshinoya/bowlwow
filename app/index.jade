@@ -1,0 +1,61 @@
+doctype html
+html(lang='ru')
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title BOWL-WOW
+        link(rel="stylesheet" href="css/style.min.css")
+    body.body
+        include ./components/templates/basicTemplate.jade
+        include ./components/atoms/DownloadButton.jade
+
+        +basicTemplate()
+            .promotion__wrapper
+                section.promotion
+                    .promotion-header
+                        .promotion-header__container
+                            .promotion-header__inner
+                                .promotion-header__burger-link(onclick="toggleMenu()")
+                                    a меню
+                        .menu
+                            .menu__inner
+                                .menu__left
+                                    a.menu__left-logo(href='/')
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#bowl-wow-natural-balanced")
+                                    .menu__left-language
+                                        h3 English
+                                nav.menu-nav
+                                    ul.menu-nav__list
+                                        - const menuNavList = [{ label: 'О бренде', link: '#about' }, { label: 'Упаковки', link: '#packages' }, { label: 'Логотип', link: '#logo' }, { label: 'Цветовая гамма', link: '#palette' }, { label: 'Шрифты', link: '#fonts' }, { label: 'Скачать', link: '#download' }, { label: 'Фотостиль', link: '#photostyle' }];
+                                        - menuNavList.forEach((item, index) => {
+                                        -   const num = `0${index + 1}`
+                                            li.menu-nav__item(onclick="toggleMenu()")
+                                                h3= num
+                                                a.menu-nav__item-link(href='#{item.link}')= item.label
+                                        - })
+                                .menu__close(onclick="toggleMenu()")
+                                    h3 Закрыть
+                    .promotion__content
+                        .container
+                            .promotion__body
+                                h3.promotion__subtitle guidelines
+                                .promotion__logo
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#bowl-wow-natural-balanced")
+                                p.promotion__text BOWL WOW [боул вау] — бренд суперпремиальных кормов для животных, разрабатываемых с любовью и производящихся под строгим контролем.
+                                p.promotion__text Мы сфокусированы на экспертизе и качестве — не только в содержании (наших продуктах), но и в форме (как выглядит наш бренд). Поэтому мы создали этот раздел, чтобы все нужные материалы и правила их использования были всегда у вас под рукой.
+                            +downloadButton('#downloadMaterials', 'promotion__download-button', 'Скачать материалы')
+                .promotion__line--left
+                .promotion__line--bottom
+                .promotion__line--right
+                .promotion__bg
+                img(class="promotion__image-bowl" src="./images/content/promotion-bowl.png" alt="миска" loading="lazy")
+                img(class="promotion__image-dog" src="./images/content/indoor-plant-wooden-floor1.png" alt="собака" loading="lazy")
+
+
+
+            //- svg
+            //-     use(xlink:href="./images/sprite.svg#phone")
+    script(src="js/main.min.js" defer)

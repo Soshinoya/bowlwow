@@ -1,0 +1,123 @@
+@media (max-width: 1700px) {
+    .promotion {
+        &__image-bowl {
+            right: 245px;
+        }
+
+        &__image-dog {
+            right: -200px;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .promotion {
+        &__image-bowl {
+            right: 145px;
+        }
+
+        &__image-dog {
+            right: -300px;
+        }
+    }
+}
+
+@media (max-width: 1260px) {
+    .promotion {
+        &__body {
+            max-width: 450px;
+        }
+    }
+}
+
+@media (max-width: 1120px) and (min-width: 768px) {
+    .container {
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 830px) {
+    .menu {
+        &__inner {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 120px 1fr;
+        }
+
+        &__left-logo {
+            display: none;
+        }
+
+        &__close {
+            margin-left: auto;
+        }
+    }
+
+    .menu-nav {
+        order: 1;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .promotion__line--left,
+    .promotion__line--bottom,
+    .promotion__line--right {
+        display: none;
+    }
+
+    .promotion {
+        &__content {
+            margin-top: 450px;
+            padding-top: 0;
+        }
+
+        &__subtitle {
+            margin-bottom: 10px;
+        }
+
+        &__logo {
+            margin-bottom: 40px;
+
+            svg {
+                width: 280px;
+                height: 61px;
+            }
+        }
+
+        &__text {
+            margin-bottom: 40px;
+            line-height: 150%;
+        }
+
+        &__image-bowl {
+            right: 145px;
+        }
+
+        &__image-dog {
+            height: 542px;
+            object-fit: cover;
+            right: 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-nav {
+        &__item {
+            h3 {
+                font-size: 16px;
+            }
+        }
+
+        &__item-link {
+            font-size: 32px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .menu {
+        padding: 20px;
+    }
+}

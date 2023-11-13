@@ -1,0 +1,58 @@
+// Basic colors
+$black-color: #17161D;
+$white-color: #fff;
+$red-color: #932C47;
+$orange-color: #EA9D45;
+$bg-color: #F7F7F7;
+
+// Additional colors: brand color palette
+$brand-palette-black: #1E1E1C;
+$brand-palette-white: #fff;
+
+// Additional colors: cats color palette
+$cats-palette-pantone-7641: #922c48;
+$cats-palette-pantone-2011: #f29934;
+$cats-palette-pantone-red-0331: #feaebb;
+$cats-palette-pantone-7667: #6e7ba0;
+
+// Additional colors: dogs color palette
+$dogs-palette-pantone-692: #e5bec3;
+$dogs-palette-pantone-7622: #96262c;
+$dogs-palette-pantone-151: #ff8300;
+$dogs-palette-pantone-207: #ab0033;
+$dogs-palette-pantone-3425: #006241;
+$dogs-palette-pantone-702: #d65d72;
+$dogs-palette-pantone-7681: #93a7cb;
+$dogs-palette-pantone-7714: #007580;
+
+$transitionTimingFunc: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+%stratos-lc-web-400 {
+    font-family: 'StratosLCWebRegular';
+    font-weight: 400;
+}
+
+%stratos-lc-web-500 {
+    font-family: 'StratosLCWebMedium';
+    font-weight: 500;
+}
+
+%stratos-lc-web-700 {
+    font-family: 'StratosLCWebBold';
+    font-weight: 700;
+}
+
+%bebas-neue-400 {
+    font-family: 'Bebas Neue';
+    font-weight: 400;
+}
+
+%montserrat-400 {
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+%montserrat-700 {
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
