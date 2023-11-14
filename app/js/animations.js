@@ -1,5 +1,9 @@
 gsap.registerPlugin(ScrollTrigger)
 
+ScrollTrigger.defaults({
+    toggleActions: 'play pause resume reset',
+})
+
 // Анимация секции Promotion
 const promotionMainTl = gsap.timeline()
 
@@ -79,27 +83,45 @@ const toggleMenu = () => {
 }
 
 // Упаковки
-gsap.fromTo('.section-template__header-title', { y: '-200%', opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+gsap.fromTo('.section-template__header-title', { y: '-200%', opacity: 0 }, { scrollTrigger: '.section-template__header-title', y: 0, opacity: 1, duration: 1 })
 
+const packagesBody = document.querySelector('.packages__body')
+const packagesCat = document.querySelector('.packages__cat')
+const packagesDog = document.querySelector('.packages__dog')
 
+packagesCat.style.height = `${packagesDog.getBoundingClientRect().height}px`
 
-const packagesAnimalsTl = gsap.timeline({
-    onComplete() { }
+gsap.fromTo(packagesDog, {
+    x: '-100%'
+}, {
+    scrollTrigger: packagesDog,
+    x: 0,
+    duration: .5
 })
-// packagesAnimalsTl.set('.packages__cat', { left: '-100%', bottom: 0 })
 
-// packagesAnimalsTl.fromTo('.packages__dog', { left: '-100%' }, { left: 0, duration: .5 })
+gsap.fromTo(packagesCat, {
+    x: '-100vw'
+}, {
+    scrollTrigger: packagesCat,
+    x: '0',
+    delay: .5,
+    duration: .5
+})
 
-const catElement = document.querySelector('.packages__cat')
+gsap.timeline({
+    scrollTrigger: {
+        trigger: packagesDog,
+        start: `-${innerHeight - packagesDog.getBoundingClientRect().height - 50}px top`,
+        end: `${packagesBody.getBoundingClientRect().height + 50}px bottom`,
+        pin: true
+    }
+})
 
-ScrollTrigger.create({
-    trigger: ".packages",
-    start: "top top",
-    // endTrigger: ".third-section",
-    end: "bottom top",
-    pin: catElement,
-    pinSpacing: false,
-    left: '222px',
-    duration: .5,
-    delay: .5
+gsap.timeline({
+    scrollTrigger: {
+        trigger: packagesCat,
+        start: `-${innerHeight - packagesCat.getBoundingClientRect().height - 50}px top`,
+        end: `${packagesBody.getBoundingClientRect().height + 50}px bottom`,
+        pin: true
+    }
 })

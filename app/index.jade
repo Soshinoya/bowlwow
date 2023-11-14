@@ -54,12 +54,21 @@ html(lang='ru')
                 img(class="promotion__image-bowl" src="./images/content/promotion-bowl.png" alt="миска" loading="lazy")
                 img(class="promotion__image-dog" src="./images/content/indoor-plant-wooden-floor.png" alt="собака" loading="lazy")
             +section('white', 'packages', 'Упаковки')
-                .packages__image
-                    img(src="./images/content/packages.png", alt="упаковки")
                 .packages__dog
-                    //- img(src="./images/content/packages-dog.png", alt="Собака")
+                    img(src="./images/content/packages-dog.png" alt="Собака")
                 .packages__cat
-                    img(src="./images/content/packages-cat.png", alt="Кот")
+                    img(src="./images/content/packages-cat.png" alt="Кот")
+                .packages__image
+                    img(src="./images/content/packages.png" alt="упаковки")
+            +section('white', 'materials', 'Скачать материалы')
+                .materials__links-inner
+                    +downloadButton('#', '', 'гайдбук (pdf)')
+                    +downloadButton('#', '', 'логотип')
+                    +downloadButton('#', '', 'шрифты')
+                    +downloadButton('#', '', 'упаковки')
+                    +downloadButton('#', '', 'единый архив')
+                .materials__image-dog
+                    img(src="./images/content/materials-dog.png" alt="собака")
 
 
             //- svg

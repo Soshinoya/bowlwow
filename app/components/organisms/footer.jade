@@ -1,2 +1,73 @@
+include ../atoms/Button.jade
+
 mixin footer()
     footer.footer
+        .container
+            .footer__links
+                .row
+                    .col-md-3
+                        .footer__links-main
+                            a.footer__links-main__logo(href='/')
+                                svg
+                                    use(xlink:href="../../images/sprite.svg#bowl-wow-natural-balanced--white")
+                            +button('#', 'Подписаться на рассылку')
+                            .footer__links-main__social
+                                a(href="#")
+                                    span
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#vk")
+                                a(href="#")
+                                    span
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#telegram")
+                    .col-md-3
+                        .footer__links-item
+                            h2.footer__links-item__title Корма BOWL WOW
+                            ul.footer__links-list
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Корма для кошек 
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Корма для собак
+                    .col-md-3
+                        .footer__links-item
+                            h2.footer__links-item__title Покупателям
+                            ul.footer__links-list
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Ответы на частые вопросы
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Помощь консультанта
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Где купить?
+                    .col-md-3
+                        .footer__links-item
+                            h2.footer__links-item__title О нас
+                            ul.footer__links-list
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Философия BOWL WOW
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Разнообразие кормов BOWL WOW
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Ингредиенты кормов 
+                                li.footer__links-list__item
+                                    a.footer__links-list__item-link(href="#") Контакты
+            .footer__info
+                .row
+                    .col-md-6
+                        p.footer__info-text Юридический адрес: 142000 Московская область, город Домодедово, Каширское шоссе, дом 7, офис 59
+                    .col-md-3
+                        a.footer__info-communication(href="#")
+                            svg
+                                use(xlink:href="./images/sprite.svg#phone")
+                            p +7 (499) 444 02 96
+                    .col-md-3
+                        a.footer__info-communication(href="#")
+                            svg
+                                use(xlink:href="./images/sprite.svg#email")
+                            p hello@bowlwow.ru
+            .double-separator
+                span
+                span
+            .footer__docs
+                p.footer__docs-copyright ©️ De Novo Group, 2022
+                a.footer__docs-privacy(href="#") Политика конфиденциальности
+                a.footer__docs-agreement(href="#") Пользовательское соглашение

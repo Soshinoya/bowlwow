@@ -1,2 +1,3 @@
-mixin button(type, text)
-    button.button(type='#{type}')= text
+mixin button(link, text)
+    a(href="#{link}")
+        button.button= text
