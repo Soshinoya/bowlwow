@@ -125,3 +125,23 @@ gsap.timeline({
         pin: true
     }
 })
+
+gsap.to('.screen__line--third', {
+    scrollTrigger: {
+        trigger: '.packages',
+        start: 'top bottom',
+        end: 'bottom bottom',
+        scrub: .5
+    },
+    autoAlpha: 0
+})
+
+gsap.to('.screen__line--second', {
+    scrollTrigger: {
+        trigger: '.logotype',
+        start: 'top bottom',
+        end: 'bottom bottom',
+        scrub: .5
+    },
+    autoAlpha: 0
+})

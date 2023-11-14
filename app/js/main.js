@@ -9,7 +9,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 // 'Photostyle' Slider
 const photostyleSliderConfig = new Swiper('.photostyle__slider > .swiper', {
     spaceBetween: 20,
+    navigation: {
+        nextEl: '.photostyle__slider-button--next',
+        prevEl: '.photostyle__slider-button--prev'
+    },
     breakpoints: {
+        // when window width is >= 320px
+        320: {
+            slidesPerView: 'auto',
+        },
         // when window width is >= 480px
         480: {
             slidesPerView: 2,

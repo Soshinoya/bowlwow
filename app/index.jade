@@ -49,8 +49,26 @@ html(lang='ru')
                                 p.promotion__text Мы сфокусированы на экспертизе и качестве — не только в содержании (наших продуктах), но и в форме (как выглядит наш бренд). Поэтому мы создали этот раздел, чтобы все нужные материалы и правила их использования были всегда у вас под рукой.
                             +downloadButton('#downloadMaterials', 'promotion__download-button', 'Скачать материалы')
                 .promotion__line--left
+                    .screen__line--first
+                        .screen__line--second
+                            .screen__line--third
+                                .screen__line--fourth
+                                    .screen__line--fifth
+                                        .screen__line--sixth
                 .promotion__line--bottom
+                    .screen__line--first
+                        .screen__line--second
+                            .screen__line--third
+                                .screen__line--fourth
+                                    .screen__line--fifth
+                                        .screen__line--sixth
                 .promotion__line--right
+                    .screen__line--first
+                        .screen__line--second
+                            .screen__line--third
+                                .screen__line--fourth
+                                    .screen__line--fifth
+                                        .screen__line--sixth
                 img(class="promotion__image-bowl" src="./images/content/promotion-bowl.png" alt="миска" loading="lazy")
                 img(class="promotion__image-dog" src="./images/content/indoor-plant-wooden-floor.png" alt="собака" loading="lazy")
             +section('white', 'packages', 'Упаковки')
@@ -60,6 +78,19 @@ html(lang='ru')
                     img(src="./images/content/packages-cat.png" alt="Кот")
                 .packages__image
                     img(src="./images/content/packages.png" alt="упаковки")
+            +section('white', 'logotype', 'Логотип')
+                .logotype__logo
+                    svg
+                        use(xlink:href="./images/sprite.svg#bowl-wow-natural-balanced")
+                .row
+                    .col-lg-4
+                        .logotype__text
+                            p Логотип является базовым и обязательным элементом дизайн-системы. Это основной элемент маркировки всех материалов, его наличие определяет всю информацию на носителе, как относящуюся  к бренду BOWL WOW.  
+                    .col-lg-4
+                        .logotype__text
+                            p Его можно использовать с дескриптором или без. Дескриптор не должен использоваться на носителях небольшого размера. По необходимости можно использовать дополнительные версии логотипа с индикатором типа животного.
+                    .col-lg-4
+                        +downloadButton('#downloadLogo', 'logotype__download-button', 'Скачать логотип')
             +section('dark', 'photostyle', 'Фотостиль')
                 .photostyle__info
                     .row
@@ -75,9 +106,9 @@ html(lang='ru')
                                 .swiper-slide
                                     .photostyle__slider-slide
                                         img(src="#{imgSrc}", alt="")
-                        .photostyle__slider-button__wrapper
-                            .photostyle__slider-button.swiper-button-prev ←
-                            .photostyle__slider-button.swiper-button-next →
+                    .photostyle__slider-button__wrapper
+                        .photostyle__slider-button.photostyle__slider-button--prev ←
+                        .photostyle__slider-button.photostyle__slider-button--next →
             +section('white', 'materials', 'Скачать материалы')
                 .materials__links-inner
                     +downloadButton('#', '', 'гайдбук (pdf)')

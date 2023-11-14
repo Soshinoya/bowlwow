@@ -37,6 +37,17 @@
 }
 
 @media (max-width: 991px) {
+    .logotype {
+        &__body .row {
+            gap: 30px;
+        }
+
+        &__download-button {
+            width: fit-content;
+            margin: 0 auto;
+        }
+    }
+
     .materials {
         &__inner {
             gap: 40px;
@@ -131,8 +142,19 @@
         }
     }
 
+    .logotype {
+        padding: 64px 0 45px;
+
+        &__logo {    
+            svg {
+                width: 430px;
+                height: 93px;
+            }
+        }
+    }
+
     .photostyle {
-        padding: 60px 0 80px;
+        padding: 60px 0 180px;
 
         &__info {
             margin-top: 40px;
@@ -178,6 +200,17 @@
         }
     }
 
+    .logotype {
+        &__header {
+            margin-top: 124px;
+        }
+
+
+        &__body {
+            gap: 74px;
+        }
+    }
+
     .section-template__header-title {
         font-size: 20px;
     }
@@ -186,6 +219,10 @@
 @media (max-width: 576px) {
     .menu {
         padding: 20px;
+    }
+
+    .section-template__header h3 {
+        margin-left: 30px;
     }
 
     .materials {
@@ -211,6 +248,15 @@
     .promotion {
         &__image-bowl {
             right: 76px;
+        }
+    }
+
+    .logotype {
+        &__logo {    
+            svg {
+                width: 280px;
+                height: 60px;
+            }
         }
     }
 }

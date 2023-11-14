@@ -109,3 +109,39 @@ h3 {
         background-color: #5E5F67;
     }
 }
+
+.screen__line {
+    &--first,
+    &--second,
+    &--third,
+    &--fourth,
+    &--fifth,
+    &--sixth {
+        width: 100%;
+        height: 100%;
+    }
+    
+    &--first {
+        background-color: #FEBBC5;
+    }
+
+    &--second {
+        background-color: #EA9D45;
+    }
+
+    &--third {
+        background-color: #922C48;
+    }
+
+    &--fourth {
+        background-color: #6E7CA0;
+    }
+
+    &--fifth {
+        background-color: #FEBBC5;
+    }
+
+    &--sixth {
+        background-color: #EA9D45;
+    }
+}
