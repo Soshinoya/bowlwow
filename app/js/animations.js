@@ -83,7 +83,7 @@ const toggleMenu = () => {
 }
 
 // Упаковки
-gsap.fromTo('.section-template__header-title', { y: '-200%', opacity: 0 }, { scrollTrigger: '.section-template__header-title', y: 0, opacity: 1, duration: 1 })
+gsap.fromTo('.packages__title', { y: '-200%', opacity: 0 }, { scrollTrigger: '.section-template__header-title', y: 0, opacity: 1, duration: 1 })
 
 const packagesBody = document.querySelector('.packages__body')
 const packagesCat = document.querySelector('.packages__cat')
@@ -92,7 +92,7 @@ const packagesDog = document.querySelector('.packages__dog')
 packagesCat.style.height = `${packagesDog.getBoundingClientRect().height}px`
 
 gsap.fromTo(packagesDog, {
-    x: '-100%'
+    x: '-100vw'
 }, {
     scrollTrigger: packagesDog,
     x: 0,

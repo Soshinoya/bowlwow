@@ -131,6 +131,22 @@
         }
     }
 
+    .photostyle {
+        padding: 60px 0 80px;
+
+        &__info {
+            margin-top: 40px;
+
+            .col-md-6:first-child {
+                margin-bottom: 20px;
+            }
+        }
+
+        &__slider {
+            margin-top: 40px;
+        }
+    }
+
     .materials {
         padding: 120px 0 464px;
 
@@ -160,6 +176,10 @@
         &__item-link {
             font-size: 32px;
         }
+    }
+
+    .section-template__header-title {
+        font-size: 20px;
     }
 }
 

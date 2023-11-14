@@ -60,6 +60,24 @@ html(lang='ru')
                     img(src="./images/content/packages-cat.png" alt="Кот")
                 .packages__image
                     img(src="./images/content/packages.png" alt="упаковки")
+            +section('dark', 'photostyle', 'Фотостиль')
+                .photostyle__info
+                    .row
+                        .col-md-6
+                            p.photostyle__text Для фонов используются стильные светлые белые «дышащие» пространства преимущественно нейтральных или прохладных оттенков. Где нужно — сочные (но естественные) натуральные ингредиенты.
+                        .col-md-6
+                            p.photostyle__text Животные для маркетинговых материалов должны быть в естественных позах, идеально в движении (бег, лежа, поднятая лапка и т.д). Рекомендуется избегать нереалистичные позы и странные выражения мордочек.
+                .photostyle__slider
+                    .swiper
+                        .swiper-wrapper
+                            - const images = ['./images/content/slider/slide1.jpg', './images/content/slider/slide2.jpg', './images/content/slider/slide3.jpg', './images/content/slider/slide4.jpg', './images/content/slider/slide5.jpg', './images/content/slider/slide6.jpg', './images/content/slider/slide7.jpg', './images/content/slider/slide8.jpg', './images/content/slider/slide9.jpg']
+                            for imgSrc in images
+                                .swiper-slide
+                                    .photostyle__slider-slide
+                                        img(src="#{imgSrc}", alt="")
+                        .photostyle__slider-button__wrapper
+                            .photostyle__slider-button.swiper-button-prev ←
+                            .photostyle__slider-button.swiper-button-next →
             +section('white', 'materials', 'Скачать материалы')
                 .materials__links-inner
                     +downloadButton('#', '', 'гайдбук (pdf)')
@@ -71,7 +89,7 @@ html(lang='ru')
                     img(src="./images/content/materials-dog.png" alt="собака")
 
 
-            //- svg
-            //-     use(xlink:href="./images/sprite.svg#phone")
+    //- svg
+    //-     use(xlink:href="./images/sprite.svg#phone")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js")
     script(src="js/main.min.js" defer)
