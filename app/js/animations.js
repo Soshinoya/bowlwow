@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin)
 
 ScrollTrigger.defaults({
-    toggleActions: 'play pause resume reset',
+    toggleActions: 'play complete resume reset',
 })
 
 // Анимация секции Promotion
@@ -142,7 +142,7 @@ const logotypeWrapper = document.querySelector('.logotype__wrapper')
 
 const logotypeFirst = logotypeWrapper.querySelector('.logotype')
 
-logotypeWrapper.style.height = `${logotypeFirst.getBoundingClientRect().height * 4}px`
+logotypeWrapper.style.height = `${logotypeFirst.getBoundingClientRect().height * 5}px`
 
 const logotypeFirstPaddingBottom = parseInt(window.getComputedStyle(logotypeFirst, null).getPropertyValue('padding-bottom'))
 
@@ -157,24 +157,24 @@ const framesClasses = [
 framesClasses.forEach((selector, i, arr) => gsap.to(selector.target, {
     scrollTrigger: {
         trigger: selector.trigger,
-        start: 'top bottom',
-        end: 'bottom bottom',
-        onEnter: () => {
-            if (i === arr[arr.length - 1]) return
+        start: 'bottom bottom',
+        end: 'bottom top',
+        // onEnter: () => {
+        //     if (i === arr[arr.length - 1]) return
 
-            const wrapperHeight = document.querySelector('.logotype__wrapper').getBoundingClientRect().height
-            const logotypeSectionHeight = document.querySelector('.logotype').getBoundingClientRect().height
+        //     const wrapperHeight = document.querySelector('.logotype__wrapper').getBoundingClientRect().height
+        //     const logotypeSectionHeight = document.querySelector('.logotype').getBoundingClientRect().height
 
-            window.scrollTo({
-                top: (i === 0 ? wrapperHeight : logotypeSectionHeight) + window.scrollY - 200
-            })
-        },
-        onEnterBack: () => {
-            if (i === 0) return
-            window.scrollTo({
-                top: window.scrollY - document.querySelector('.logotype').getBoundingClientRect().height
-            })
-        },
+        //     window.scrollTo({
+        //         top: (i === 0 ? wrapperHeight : logotypeSectionHeight) + window.scrollY - 200
+        //     })
+        // },
+        // onEnterBack: () => {
+        //     if (i === 0) return
+        //     window.scrollTo({
+        //         top: window.scrollY - document.querySelector('.logotype').getBoundingClientRect().height
+        //     })
+        // },
         scrub: .5
     },
     autoAlpha: 0
@@ -184,8 +184,8 @@ framesClasses.forEach((selector, i, arr) => gsap.to(selector.target, {
 gsap.to('.logotype__logo--fourth', {
     scrollTrigger: {
         trigger: '.logotype--second',
-        start: 'top bottom',
-        end: 'bottom bottom',
+        start: 'bottom bottom',
+        end: 'bottom top',
     },
     autoAlpha: 0
 })
@@ -193,8 +193,8 @@ gsap.to('.logotype__logo--fourth', {
 gsap.to('.logotype__logo--third', {
     scrollTrigger: {
         trigger: '.logotype--third',
-        start: 'top bottom',
-        end: 'bottom bottom',
+        start: 'bottom bottom',
+        end: 'bottom top',
     },
     autoAlpha: 0
 })
@@ -202,8 +202,8 @@ gsap.to('.logotype__logo--third', {
 gsap.to('.logotype__logo--second', {
     scrollTrigger: {
         trigger: '.logotype--fourth',
-        start: 'top bottom',
-        end: 'bottom bottom',
+        start: 'bottom bottom',
+        end: 'bottom top',
     },
     autoAlpha: 0
 })
