@@ -78,19 +78,26 @@ html(lang='ru')
                     img(src="./images/content/packages-cat.png" alt="Кот")
                 .packages__image
                     img(src="./images/content/packages.png" alt="упаковки")
-            +section('white', 'logotype', 'Логотип')
-                .logotype__logo
-                    svg
-                        use(xlink:href="./images/sprite.svg#bowl-wow-natural-balanced")
-                .row
-                    .col-lg-4
-                        .logotype__text
-                            p Логотип является базовым и обязательным элементом дизайн-системы. Это основной элемент маркировки всех материалов, его наличие определяет всю информацию на носителе, как относящуюся  к бренду BOWL WOW.  
-                    .col-lg-4
-                        .logotype__text
-                            p Его можно использовать с дескриптором или без. Дескриптор не должен использоваться на носителях небольшого размера. По необходимости можно использовать дополнительные версии логотипа с индикатором типа животного.
-                    .col-lg-4
-                        +downloadButton('#downloadLogo', 'logotype__download-button', 'Скачать логотип')
+            .logotype__wrapper
+                +section('white', 'logotype', 'Логотип')
+                    .logotype__logo-wrapper
+                        .logotype__logo--first
+                            .logotype__logo--second
+                                .logotype__logo--third
+                                    .logotype__logo--fourth
+                    .row
+                        .col-lg-4
+                            .logotype__text
+                                p Логотип является базовым и обязательным элементом дизайн-системы. Это основной элемент маркировки всех материалов, его наличие определяет всю информацию на носителе, как относящуюся  к бренду BOWL WOW.  
+                        .col-lg-4
+                            .logotype__text
+                                p Его можно использовать с дескриптором или без. Дескриптор не должен использоваться на носителях небольшого размера. По необходимости можно использовать дополнительные версии логотипа с индикатором типа животного.
+                        .col-lg-4
+                            +downloadButton('#downloadLogo', 'logotype__download-button', 'Скачать логотип')
+                section.logotype--second
+                section.logotype--third
+                section.logotype--fourth
+                section.logotype--fifth
             +section('dark', 'photostyle', 'Фотостиль')
                 .photostyle__info
                     .row
@@ -105,7 +112,7 @@ html(lang='ru')
                             for imgSrc in images
                                 .swiper-slide
                                     .photostyle__slider-slide
-                                        img(src="#{imgSrc}", alt="")
+                                        img(src="#{imgSrc}" alt="")
                     .photostyle__slider-button__wrapper
                         .photostyle__slider-button.photostyle__slider-button--prev ←
                         .photostyle__slider-button.photostyle__slider-button--next →
@@ -121,6 +128,6 @@ html(lang='ru')
 
 
     //- svg
-    //-     use(xlink:href="./images/sprite.svg#phone")
+    //-     use(xlink:href="./images/sprite.svg")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js")
     script(src="js/main.min.js" defer)

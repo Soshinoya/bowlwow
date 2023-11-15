@@ -78,6 +78,9 @@ function scripts() {
     'node_modules/jquery/dist/jquery.js',
     'node_modules/swiper/swiper-bundle.js',
     'node_modules/gsap/dist/gsap.min.js',
+    'app/js/plugins/MorphSVGPlugin.js',
+    'app/utils/isVisible.js',
+    'app/utils/autoScrollToElem.js',
     'app/js/animations.js',
     'app/js/main.js'
   ])
@@ -103,6 +106,7 @@ function cleanDist() {
 function watching() {
   watch(['app/**/*.scss'], styles);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
+  watch(['app/utils/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.jade'], jadeCompiler).on('change', browserSync.reload);
   // watch(['app/**/*.html']).on('change', browserSync.reload);
 }
@@ -121,4 +125,4 @@ exports.cleanDist = cleanDist;
 exports.dist = series(cleanDist, dist);
 
 
-exports.default = parallel(jadeCompiler, styles, scripts, img, browsersync, watching);
+exports.default = parallel(jadeCompiler, styles, scripts, browsersync, watching);

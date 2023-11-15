@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin)
 
 ScrollTrigger.defaults({
     toggleActions: 'play pause resume reset',
@@ -126,7 +126,8 @@ gsap.timeline({
     }
 })
 
-gsap.to('.screen__line--third', {
+// Анимация выцветания рамки
+gsap.to('.screen__line--sixth', {
     scrollTrigger: {
         trigger: '.packages',
         start: 'top bottom',
@@ -136,12 +137,107 @@ gsap.to('.screen__line--third', {
     autoAlpha: 0
 })
 
-gsap.to('.screen__line--second', {
+// Секция 'logotype'
+const logotypeWrapper = document.querySelector('.logotype__wrapper')
+
+const logotypeFirst = logotypeWrapper.querySelector('.logotype')
+
+logotypeWrapper.style.height = `${logotypeFirst.getBoundingClientRect().height * 4}px`
+
+const logotypeFirstPaddingBottom = parseInt(window.getComputedStyle(logotypeFirst, null).getPropertyValue('padding-bottom'))
+
+const framesClasses = [
+    { target: '.screen__line--fifth', trigger: '.logotype' },
+    { target: '.screen__line--fourth', trigger: '.logotype--second' },
+    { target: '.screen__line--third', trigger: '.logotype--third' },
+    { target: '.screen__line--second', trigger: '.logotype--fourth' },
+    { target: '.screen__line--first', trigger: '.logotype--fifth' }
+]
+
+framesClasses.forEach((selector, i, arr) => gsap.to(selector.target, {
     scrollTrigger: {
-        trigger: '.logotype',
+        trigger: selector.trigger,
         start: 'top bottom',
         end: 'bottom bottom',
+        onEnter: () => {
+            if (i === arr[arr.length - 1]) return
+
+            const wrapperHeight = document.querySelector('.logotype__wrapper').getBoundingClientRect().height
+            const logotypeSectionHeight = document.querySelector('.logotype').getBoundingClientRect().height
+
+            window.scrollTo({
+                top: (i === 0 ? wrapperHeight : logotypeSectionHeight) + window.scrollY - 200
+            })
+        },
+        onEnterBack: () => {
+            if (i === 0) return
+            window.scrollTo({
+                top: window.scrollY - document.querySelector('.logotype').getBoundingClientRect().height
+            })
+        },
         scrub: .5
     },
     autoAlpha: 0
+}))
+
+// Сменя логотипов
+gsap.to('.logotype__logo--fourth', {
+    scrollTrigger: {
+        trigger: '.logotype--second',
+        start: 'top bottom',
+        end: 'bottom bottom',
+    },
+    autoAlpha: 0
+})
+
+gsap.to('.logotype__logo--third', {
+    scrollTrigger: {
+        trigger: '.logotype--third',
+        start: 'top bottom',
+        end: 'bottom bottom',
+    },
+    autoAlpha: 0
+})
+
+gsap.to('.logotype__logo--second', {
+    scrollTrigger: {
+        trigger: '.logotype--fourth',
+        start: 'top bottom',
+        end: 'bottom bottom',
+    },
+    autoAlpha: 0
+})
+
+// Закрепляем секцию 'logotype'
+gsap.timeline({
+    scrollTrigger: {
+        trigger: '.logotype',
+        start: 'bottom bottom',
+        end: `${logotypeWrapper.getBoundingClientRect().height - (logotypeFirstPaddingBottom * 2) + 50}px bottom`,
+        pin: true
+    }
+})
+
+// Появление текстовый блоков и логотипа
+const logotypeContentTextBlocks = document.querySelectorAll('.logotype__text')
+
+logotypeContentTextBlocks.forEach((elem, i) => gsap.fromTo(elem, {
+    y: '100%',
+    opacity: 0
+}, {
+    y: 0,
+    opacity: 1,
+    duration: .5,
+    delay: (i + 1) * 0.5,
+    scrollTrigger: elem
+}))
+
+gsap.fromTo('.logotype__logo-wrapper', {
+    y: '100%',
+    opacity: 0
+}, {
+    y: 0,
+    opacity: 1,
+    duration: .5,
+    scrollTrigger: '.logotype__logo-wrapper'
 })
