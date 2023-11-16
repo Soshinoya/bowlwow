@@ -29,7 +29,7 @@ html(lang='ru')
                                         h3 English
                                 nav.menu-nav
                                     ul.menu-nav__list
-                                        - const menuNavList = [{ label: 'О бренде', link: '#about' }, { label: 'Упаковки', link: '#packages' }, { label: 'Логотип', link: '#logo' }, { label: 'Цветовая гамма', link: '#palette' }, { label: 'Шрифты', link: '#fonts' }, { label: 'Скачать', link: '#download' }, { label: 'Фотостиль', link: '#photostyle' }];
+                                        - const menuNavList = [{ label: 'О бренде', link: '#about' }, { label: 'Упаковки', link: '#packages' }, { label: 'Логотип', link: '#logotype' }, { label: 'Цветовая гамма', link: '#palette' }, { label: 'Шрифты', link: '#fonts' }, { label: 'Скачать', link: '#materials' }, { label: 'Фотостиль', link: '#photostyle' }];
                                         - menuNavList.forEach((item, index) => {
                                         -   const num = `0${index + 1}`
                                             li.menu-nav__item(onclick="toggleMenu()")
