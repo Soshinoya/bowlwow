@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin)
+gsap.registerPlugin(ScrollTrigger)
 
 ScrollTrigger.defaults({
     toggleActions: 'play complete resume reset',
@@ -240,4 +240,37 @@ gsap.fromTo('.logotype__logo-wrapper', {
     opacity: 1,
     duration: .5,
     scrollTrigger: '.logotype__logo-wrapper'
+})
+
+// Секция 'Palette'
+
+const paletteColorsBrandQ = gsap.utils.selector('#palette')
+const paletteColorsCatQ = gsap.utils.selector('#palette-cat')
+const paletteColorsDogQ = gsap.utils.selector('#palette-dog')
+
+gsap.fromTo(paletteColorsBrandQ('.palette__colors-item'), {
+    x: '100vw'
+}, {
+    x: 0,
+    stagger: 0.1,
+    scrollTrigger: '#palette',
+    duration: .5
+})
+
+gsap.fromTo(paletteColorsCatQ('.palette__colors-item'), {
+    x: '100vw'
+}, {
+    x: 0,
+    stagger: 0.1,
+    scrollTrigger: '#palette-cat',
+    duration: .5
+})
+
+gsap.fromTo(paletteColorsDogQ('.palette__colors-item'), {
+    x: '100vw'
+}, {
+    x: 0,
+    stagger: 0.1,
+    scrollTrigger: '#palette-dog',
+    duration: .5
 })

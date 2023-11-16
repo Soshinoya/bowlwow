@@ -78,7 +78,7 @@ function scripts() {
     'node_modules/jquery/dist/jquery.js',
     'node_modules/swiper/swiper-bundle.js',
     'node_modules/gsap/dist/gsap.min.js',
-    'app/js/plugins/MorphSVGPlugin.js',
+    'app/utils/copyToClipboard.js',
     'app/utils/isVisible.js',
     'app/utils/autoScrollToElem.js',
     'app/js/animations.js',

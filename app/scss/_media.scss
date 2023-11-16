@@ -10,6 +10,12 @@
     }
 }
 
+@media (min-width: 1399px) {
+    .palette__colors {
+        min-width: calc(67% + ((100vw - 1150px) / 2));
+    }
+}
+
 @media (max-width: 1400px) {
     .promotion {
         &__image-bowl {
@@ -19,6 +25,10 @@
         &__image-dog {
             right: -300px;
         }
+    }
+
+    .palette__colors-item__info {
+        margin: 0 0 84px 70px;
     }
 }
 
@@ -58,6 +68,46 @@
             width: max-content;
         }
     }
+
+    .palette {
+        flex-direction: column;
+        gap: 80px;
+        padding: 80px 0 100px;
+
+        &__header {
+            display: none;
+        }
+
+        &.palette--first .palette__header {
+            display: block;
+        }
+
+        &__content {
+            padding: 0;
+        }
+
+        &__content,
+        &__colors {
+            min-width: 100vw;
+        }
+
+        &__colors {
+            flex-direction: column;
+        }
+
+        &__colors-item__info {
+            gap: 5px;
+            margin: 0;
+
+            p {
+                @include font(14px, normal)
+            }
+        }
+
+        &__colors-item {
+            padding: 20px;
+        }
+    }
 }
 
 @media (max-width: 830px) {
@@ -80,6 +130,24 @@
     .menu-nav {
         order: 1;
         align-items: flex-start;
+    }
+}
+
+@media (min-width: 1260px) and (max-width: 1400px) {
+    .palette__colors {
+        min-width: calc(67% + ((100vw - 1100px) / 2));
+    }
+}
+
+@media (min-width: 1120px) and (max-width: 1259px) {
+    .palette__colors {
+        min-width: calc(67% + ((100vw - 920px) / 2));
+    }
+}
+
+@media (min-width: 991px) and (max-width: 1119px) {
+    .palette__colors {
+        min-width: calc(67% + ((100vw - 860px) / 2));
     }
 }
 
@@ -223,6 +291,24 @@
 
     .section-template__header h3 {
         margin-left: 30px;
+    }
+
+    .palette {
+        gap: 20px;
+        padding: 0;
+        padding-top: 45px;
+
+        &__body {
+            gap: 0;
+        }
+
+        &__main {
+            margin: 40px 0 20px;
+        }
+
+        &__main-title {
+            @include font(40px, normal);
+        }
     }
 
     .materials {
