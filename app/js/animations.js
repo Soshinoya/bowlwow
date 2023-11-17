@@ -60,7 +60,7 @@ const toggleMenu = () => {
     const burgerMenu = document.querySelector('.menu')
     burgerMenu.classList.toggle('menu--active')
     if (burgerMenu.classList.contains('menu--active')) {
-        // document.body.style.overflow = 'hidden'
+        document.body.style.overflow = 'hidden'
 
         gsap.to(['.menu__left-logo', '.menu__left-language', '.menu__close'], { opacity: 1, delay: .5, duration: 1 })
 
@@ -74,7 +74,7 @@ const toggleMenu = () => {
 
         animateItems()
     } else {
-        // document.body.style.overflow = 'auto'
+        document.body.style.overflow = 'auto'
 
         gsap.to(['.menu__left-logo', '.menu__left-language', '.menu__close'], { opacity: 0, duration: 1 })
 
@@ -227,8 +227,8 @@ logotypeContentTextBlocks.forEach((elem, i) => gsap.fromTo(elem, {
 }, {
     y: 0,
     opacity: 1,
-    duration: .5,
-    delay: (i + 1) * 0.5,
+    duration: .3,
+    delay: (i + 1) * 0.2,
     scrollTrigger: elem
 }))
 
