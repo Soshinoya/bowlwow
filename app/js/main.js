@@ -49,16 +49,16 @@ paletteColors.forEach(palette => {
         palette.addEventListener('click', async e => {
             if (e.target.classList.contains('palette__colors-item')) {
                 e.target.classList.toggle('palette__colors-item--active')
-                // await copyToClipboard(window.getComputedStyle(e.target, null).getPropertyValue('background-color') )
-                // setTimeout(() => {
-                //     colors.forEach(color => color.classList.remove('palette__colors-item--active'))
-                // }, 2000)
+                await copyToClipboard(window.getComputedStyle(e.target, null).getPropertyValue('background-color') )
+                setTimeout(() => {
+                    colors.forEach(color => color.classList.remove('palette__colors-item--active'))
+                }, 2000)
             }
         })
     } else {
         palette.addEventListener('click', async e => {
             if (e.target.classList.contains('pallete__colors-item')) {
-                // await copyToClipboard(window.getComputedStyle(e.target, null).getPropertyValue('background-color') )
+                await copyToClipboard(window.getComputedStyle(e.target, null).getPropertyValue('background-color') )
             }
         })
         colors.forEach(color => color.classList.add('palette__colors-item--active'))

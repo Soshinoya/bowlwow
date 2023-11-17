@@ -46,6 +46,16 @@
     }
 }
 
+@media (min-width: 991px) {
+    .palette__colors-item__info {
+
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+}
+
 @media (max-width: 991px) {
     .logotype {
         &__body .row {
@@ -74,6 +84,14 @@
         gap: 80px;
         padding: 80px 0 100px;
 
+        &:first-child {
+            padding-bottom: 0;
+        }
+
+        &:last-child {
+            padding-top: 0;
+        }
+
         &__header {
             display: none;
         }
@@ -100,12 +118,19 @@
             margin: 0;
 
             p {
-                @include font(14px, normal)
+                @include font(14px, normal);
+            }
+
+            p,
+            &--white p {
+                &:nth-child(2)::after {
+                    display: none;
+                }
             }
         }
 
         &__colors-item {
-            padding: 20px;
+            padding: 20px 20px 50px 20px;
         }
     }
 }
@@ -152,6 +177,7 @@
 }
 
 @media (max-width: 768px) {
+
     .promotion__line--left,
     .promotion__line--bottom,
     .promotion__line--right {
@@ -213,7 +239,7 @@
     .logotype {
         padding: 64px 0 45px;
 
-        &__logo {    
+        &__logo {
             svg {
                 width: 430px;
                 height: 93px;
@@ -295,8 +321,17 @@
 
     .palette {
         gap: 20px;
-        padding: 0;
-        padding-top: 45px;
+        padding-top: 40px;
+        padding-bottom: 0;
+        height: auto;
+
+        &:first-child {
+            padding-top: 45px;
+        }
+
+        &:last-child {
+            padding-bottom: 40px;
+        }
 
         &__body {
             gap: 0;
@@ -338,7 +373,7 @@
     }
 
     .logotype {
-        &__logo {    
+        &__logo {
             svg {
                 width: 280px;
                 height: 60px;
