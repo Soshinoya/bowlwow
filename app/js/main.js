@@ -67,7 +67,7 @@ paletteColors.forEach(palette => {
 
 // Выход палитры за пределы контейнера, на маленьких устройствах
 const setPaletteOffset = () => {
-    if (window.matchMedia('(max-width: 1120px)').matches && window.matchMedia('(min-width: 768px)').matches) {
+    if (window.matchMedia('(max-width: 991px)').matches && window.matchMedia('(min-width: 768px)').matches) {
         paletteColors.forEach(palette => palette.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 50}px`)
     } else if (window.matchMedia('(max-width: 767px)').matches) {
         paletteColors.forEach(palette => palette.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 20}px`)
@@ -76,3 +76,18 @@ const setPaletteOffset = () => {
 
 window.addEventListener('resize', setPaletteOffset)
 setPaletteOffset()
+
+// Выход заднего фона секции "Шрифты" за пределы контейнера, на маленьких устройствах
+const fontsContainer = document.querySelector('.fonts__wrapper > .container')
+const fontsBg = document.querySelector('.fonts__image')
+
+const setFontsBgOffset = () => {
+    if (window.matchMedia('(max-width: 991px)').matches && window.matchMedia('(min-width: 768px)').matches) {
+        fontsBg.style.marginLeft = `-${fontsContainer.getBoundingClientRect().left + 50}px`
+    } else if (window.matchMedia('(max-width: 767px)').matches) {
+        fontsBg.style.marginLeft = `-${fontsContainer.getBoundingClientRect().left + 20}px`
+    }
+}
+
+window.addEventListener('resize', setFontsBgOffset)
+setFontsBgOffset()

@@ -36,6 +36,7 @@ function img() {
 
 function doSvgSprite() {
   return gulp.src([
+    'app/images/backgrounds/*.svg',
     'app/images/icons/*.svg',
     'app/images/logo/*.svg'
   ]) // svg files for sprite

@@ -416,7 +416,7 @@
         position: relative;
         margin: 0 auto;
         width: 622px;
-        height: 295px;
+        height: 330px;
     }
 
     &__logo {
@@ -594,6 +594,86 @@
 
             &::before {
                 @include bg-img(null, null, "../images/sprite.svg#copy", no-repeat, cover, center center);
+            }
+        }
+    }
+}
+
+.fonts {
+    display: flex;
+
+    &__title::before {
+        content: '05';
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        margin-top: 85px;
+        max-width: 514px;
+    }
+
+    &__content {
+        min-width: 44%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__body {
+        padding: 214px 0 145px;
+    }
+
+    &__image {
+        flex: 0 0 56%;
+        min-width: calc(56% + ((100vw - 1170px) / 2));
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__wrapper {
+        overflow: hidden;
+    }
+}
+
+.fonts-field {
+    &__title {
+        margin-bottom: 10px;
+    }
+
+    &__weight {
+        margin-bottom: 20px;
+    }
+
+    &__description {
+        @include font(20px, normal, #000);
+    }
+
+    &__title,
+    &__weight {
+        @include font(60px, normal, #1D1D1B);
+    }
+
+    &:first-child {
+
+        .fonts-field__title,
+        .fonts-field__weight {
+            @extend %bebas-neue-400;
+        }
+    }
+
+    &:nth-child(2) {
+
+        .fonts-field__title,
+        .fonts-field__weight {
+            @extend %montserrat-400;
+
+            bold {
+                @extend %montserrat-700;
             }
         }
     }
