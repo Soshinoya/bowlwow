@@ -54,6 +54,12 @@
             max-width: 450px;
         }
     }
+
+    .footer {
+        &__docs {
+            gap: 40px;
+        }
+    }
 }
 
 @media (max-width: 1120px) and (min-width: 768px) {
@@ -73,6 +79,31 @@
 }
 
 @media (max-width: 991px) {
+    .footer {
+        &__links .row {
+            gap: 40px;
+        }
+
+        &__links-item {
+            gap: 15px;
+        }
+
+        &__info {
+            .col-lg-6 {
+                margin-bottom: 30px;
+            }
+
+            .col-lg-3:last-of-type {
+                margin-top: 10px;
+            }
+        }
+
+        &__docs {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
     .packages {
         &__image {
             max-width: 400px;
@@ -88,8 +119,16 @@
     }
 
     .logotype {
-        &__body .row {
-            gap: 30px;
+        &__header {
+            margin-bottom: 20px;
+        }
+
+        &__body {
+            gap: 20px;
+
+            .row {
+                gap: 20px;
+            }
         }
 
         &__download-button {
@@ -280,11 +319,9 @@
     .logotype {
         padding: 64px 0 45px;
 
-        &__logo {
-            svg {
-                width: 430px;
-                height: 93px;
-            }
+        &__logo-wrapper {
+            width: 412px;
+            height: 202px;
         }
     }
 
@@ -360,6 +397,53 @@
         margin-left: 30px;
     }
 
+    .footer {
+        padding: 40px 0;
+
+        &__links-main {
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        &__links-main__social,
+        &__links-main__logo {
+            width: fit-content;
+        }
+
+        &__links-main__btn {
+            order: 1;
+            width: 100%;
+            
+            .button {
+                width: 100%;
+            }
+        }
+
+        &__links-main__logo svg {
+            width: 130px;
+            height: 28px;
+        }
+    }
+
+    .logotype {
+        max-height: fit-content !important;
+        padding-bottom: 45px;
+
+        &__header {
+            margin-top: 0;
+        }
+
+        &__body {
+            .col-lg-4:last-child {
+                order: -1;
+            }
+
+            .download-button {
+                width: 100%;
+            }
+        }
+    }
+
     .palette {
         gap: 20px;
         padding-top: 40px;
@@ -368,10 +452,6 @@
 
         &:first-child {
             padding-top: 45px;
-        }
-
-        &:last-child {
-            padding-bottom: 40px;
         }
 
         &__body {
@@ -437,11 +517,9 @@
     }
 
     .logotype {
-        &__logo {
-            svg {
-                width: 280px;
-                height: 60px;
-            }
+        &__logo-wrapper {
+            width: 310px;
+            height: 146px;
         }
     }
 }

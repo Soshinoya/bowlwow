@@ -386,12 +386,15 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    background-color: #f5f8fd;
 
     &--second,
     &--third,
     &--fourth {
         height: 100vh;
+    }
+
+    &__wrapper {
+        background-color: #f5f8fd;
     }
 
     &__body {
@@ -417,6 +420,7 @@
     }
 
     &__logo {
+
         &--first,
         &--second,
         &--third,
@@ -588,7 +592,7 @@
                 @include bg-img(null, null, "../images/sprite.svg#copy", no-repeat, cover, center center);
             }
 
-            &::before {    
+            &::before {
                 @include bg-img(null, null, "../images/sprite.svg#copy", no-repeat, cover, center center);
             }
         }
