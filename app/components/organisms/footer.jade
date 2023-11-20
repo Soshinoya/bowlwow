@@ -13,14 +13,18 @@ mixin footer()
                             .footer__links-main__btn
                                 +button('#', 'Подписаться на рассылку')
                             .footer__links-main__social
-                                a(href="#")
+                                a.footer__links-main__social--vk(href="https://vk.com/bowlwow")
                                     span
                                         svg
                                             use(xlink:href="./images/sprite.svg#vk")
-                                a(href="#")
+                                a.footer__links-main__social--telegram(href="https://t.me/bowlwow")
                                     span
                                         svg
                                             use(xlink:href="./images/sprite.svg#telegram")
+                                a.footer__links-main__social--ok(href="https://ok.ru/group/70000001306310")
+                                    span
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#ok")
                     .col-lg-3
                         .footer__links-item
                             h2.footer__links-item__title Корма BOWL WOW

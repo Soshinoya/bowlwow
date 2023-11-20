@@ -33,8 +33,26 @@
             align-items: center;
             gap: 12px;
 
+            &--vk svg {
+                width: 21px;
+                height: 12px;
+            }
+
+            &--telegram svg {
+                width: 19px;
+                height: 16px;
+            }
+
+            &--ok svg {
+                width: 18px;
+                height: 20px;
+            }
+
             svg {
                 width: 20px;
+                fill: #000;
+
+                transition: fill .3s $transitionTimingFunc;
             }
 
             span {
@@ -45,6 +63,18 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                transition: background-color .3s $transitionTimingFunc;
+            }
+
+            a:hover {
+                span {
+                    background-color: #000;
+                }
+
+                svg {
+                    fill: $white-color;
+                }
             }
         }
     }
@@ -67,6 +97,16 @@
         &__item-link {
             color: #e0e0e0;
             line-height: 120%;
+        }
+    }
+    
+    &__links-list__item-link,
+    &__info-communication p,
+    &__docs a {
+        transition: color .2s linear;
+
+        &:hover {
+            color: $red-color;
         }
     }
 
@@ -723,6 +763,11 @@
         border-radius: 5px;
         border: 2px solid $white-color;
 
+        transition-property: color;
+        transition-property: background-color;
+        transition-duration: .3s;
+        transition-timing-function: $transitionTimingFunc;
+
         @include font(32px, 120%, $white-color) {
             letter-spacing: 0.32px;
             text-transform: uppercase;
@@ -737,6 +782,11 @@
             gap: 20px;
             width: 140px;
             height: 60px;
+        }
+
+        &:hover {
+            background-color: $white-color;
+            color: $black-color;
         }
     }
 }

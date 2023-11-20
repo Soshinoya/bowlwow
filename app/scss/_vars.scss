@@ -24,7 +24,7 @@ $dogs-palette-pantone-702: #d65d72;
 $dogs-palette-pantone-7681: #93a7cb;
 $dogs-palette-pantone-7714: #007580;
 
-$transitionTimingFunc: cubic-bezier(0.165, 0.84, 0.44, 1);
+$transitionTimingFunc: ease-in-out;
 
 %stratos-lc-web-400 {
     font-family: 'StratosLCWebRegular';
