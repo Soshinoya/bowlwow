@@ -69,16 +69,16 @@ html(lang='ru')
                                 .screen__line--fourth
                                     .screen__line--fifth
                                         .screen__line--sixth
-                img(class="promotion__image-bowl" src="./images/content/promotion-bowl.png" alt="миска" loading="lazy")
-                img(class="promotion__image-dog" src="./images/content/indoor-plant-wooden-floor.png" alt="собака" loading="lazy")
+                img(class="promotion__image-bowl" src="./images/content/promotion-bowl.png" alt="миска" loading="lazy" srcset="./images/content/promotion-bowl.png 1x, ./images/content/promotion-bowl@2x.png 2x")
+                img(class="promotion__image-dog" src="./images/content/indoor-plant-wooden-floor.png" alt="собака" loading="lazy" srcset="./images/content/indoor-plant-wooden-floor.png 1x, ./images/content/indoor-plant-wooden-floor@2x.png 2x")
             +section('white', 'packages', 'Упаковки')
                 .packages__dog
-                    img(src="./images/content/packages-dog.png" alt="Собака")
+                    img(src="./images/content/packages-dog.png" alt="Собака" srcset="./images/content/packages-dog.png 1x, ./images/content/packages-dog@2x.png 2x")
                 .packages__cat
-                    img(src="./images/content/packages-cat.png" alt="Кот")
+                    img(src="./images/content/packages-cat.png" alt="Кот" srcset="./images/content/packages-cat.png 1x, ./images/content/packages-cat@2x.png 2x")
                 .packages__image
-                    img(src="./images/content/packages.png" alt="упаковки")
-                    img(src="./images/content/packages--mini.png" alt="упаковки")
+                    img(src="./images/content/packages.png" alt="упаковки" srcset="./images/content/packages.png 1x, ./images/content/packages@2x.png 2x")
+                    img(src="./images/content/packages--mini.png" alt="упаковки" srcset="./images/content/packages--mini.png 1x, ./images/content/packages--mini@2x.png 2x")
             .logotype__wrapper
                 +section('white', 'logotype', 'Логотип')
                     .logotype__logo-wrapper
@@ -233,11 +233,11 @@ html(lang='ru')
                 .photostyle__slider
                     .swiper
                         .swiper-wrapper
-                            - const images = ['./images/content/slider/slide1.jpg', './images/content/slider/slide2.jpg', './images/content/slider/slide3.jpg', './images/content/slider/slide4.jpg', './images/content/slider/slide5.jpg', './images/content/slider/slide6.jpg', './images/content/slider/slide7.jpg', './images/content/slider/slide8.jpg', './images/content/slider/slide9.jpg']
-                            for imgSrc in images
+                            - const images = [{ src: './images/content/slider/slide1.jpg', srcSet: './images/content/slider/slide1@2x.jpg' }, { src: './images/content/slider/slide2.jpg', srcSet: './images/content/slider/slide2@2x.jpg' }, { src: './images/content/slider/slide3.jpg', srcSet: './images/content/slider/slide3@2x.jpg' }, { src: './images/content/slider/slide4.jpg', srcSet: './images/content/slider/slide4@2x.jpg' }, { src: './images/content/slider/slide5.jpg', srcSet: './images/content/slider/slide5@2x.jpg' }, { src: './images/content/slider/slide6.jpg', srcSet: './images/content/slider/slide6@2x.jpg' }, { src: './images/content/slider/slide7.jpg', srcSet: './images/content/slider/slide7@2x.jpg' }, { src: './images/content/slider/slide8.jpg', srcSet: './images/content/slider/slide8@2x.jpg' }, { src: './images/content/slider/slide9.jpg', srcSet: './images/content/slider/slide9@2x.jpg' }]
+                            for imgObj in images
                                 .swiper-slide
                                     .photostyle__slider-slide
-                                        img(src="#{imgSrc}" alt="")
+                                        img(src="#{imgObj.src}" srcset="#{imgObj.src} 1x, #{imgObj.setSrc} 2x" alt="")
                     .photostyle__slider-button__wrapper
                         .photostyle__slider-button.photostyle__slider-button--prev ←
                         .photostyle__slider-button.photostyle__slider-button--next →
@@ -249,7 +249,7 @@ html(lang='ru')
                     +downloadButton('#', '', 'упаковки')
                     +downloadButton('#', '', 'единый архив')
                 .materials__image-dog
-                    img(src="./images/content/materials-dog.png" alt="собака")
+                    img(src="./images/content/materials-dog.png" alt="собака" srcset="./images/content/materials-dog.png 1x, ./images/content/materials-dog@2x.png 2x")
 
 
     //- svg
