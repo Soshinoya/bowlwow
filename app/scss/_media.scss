@@ -49,8 +49,7 @@
 
     .fonts {
         &__image {
-            min-width: calc(56% + ((100vw - 1080px) / 2));
-            height: fit-content;
+            min-width: calc(56% + ((100vw - 610px) / 2));
             margin: auto 0;
         }
     }
@@ -71,12 +70,7 @@
 
     .fonts {
         &__image {
-            min-width: calc(56% + ((100vw - 910px) / 2));
-
-            img {
-                width: 45vw;
-                margin-left: auto;
-            }
+            min-width: calc(56% + ((100vw - 270px) / 2));
         }
     }
 }
@@ -88,7 +82,7 @@
         }
 
         &__image {
-            min-width: calc(56% + ((100vw - 860px) / 2));
+            min-width: calc(56% + ((100vw - 100px) / 2));
         }
     }
 }
@@ -235,14 +229,20 @@
     }
 
     .fonts {
-        display: block;
+        flex-direction: column;
+        justify-content: space-between;
 
         &__image {
-            min-width: 100vw;
+            display: flex;
+            align-items: flex-end;
+            min-width: calc(56% + (100vw - 70px)/2);
+            height: 100%;
+            margin: 0;
 
             img {
                 width: auto;
-                height: 400px;
+                margin-left: auto;
+                height: 32vw;
             }
         }
     }
@@ -403,15 +403,6 @@
     }
 }
 
-@media (max-width: 660px) {
-    .fonts {
-        &__image img {
-            width: 323px;
-            height: 345px;
-        }
-    }
-}
-
 @media (max-width: 600px) {
     .menu-nav {
         &__item {
@@ -528,6 +519,11 @@
         &__inner {
             margin-top: 40px;
             gap: 40px;
+        }
+
+        &__image img {
+            width: 323px;
+            height: 345px;
         }
     }
 

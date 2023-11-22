@@ -39,55 +39,19 @@ window.addEventListener('resize', setPhotostyleSliderOffset)
 setPhotostyleSliderOffset()
 
 // Секция 'Palette'
+const paletteWrapper = document.querySelector('.palette__wrapper')
 const paletteColors = document.querySelectorAll('.palette__colors')
-const paletteContainer = document.querySelector('.palette__wrapper > .container')
 
-paletteColors.forEach(palette => {
-    // Если палитра меньше или равна 3-ём цветам, добавляем активный класс
-    const colors = palette.querySelectorAll('.palette__colors-item')
-    if (colors.length > 3) {
-        palette.addEventListener('click', async e => {
-            if (e.target.classList.contains('palette__colors-item')) {
-                e.target.classList.toggle('palette__colors-item--active')
-                await copyToClipboard(window.getComputedStyle(e.target, null).getPropertyValue('background-color') )
-                setTimeout(() => {
-                    colors.forEach(color => color.classList.remove('palette__colors-item--active'))
-                }, 2000)
-            }
-        })
-    } else {
-        palette.addEventListener('click', async e => {
-            if (e.target.classList.contains('pallete__colors-item')) {
-                await copyToClipboard(window.getComputedStyle(e.target, null).getPropertyValue('background-color') )
-            }
-        })
-        colors.forEach(color => color.classList.add('palette__colors-item--active'))
+// При клике на тип цвета, он копируется в буфер
+paletteWrapper.addEventListener('click', async e => {
+    if (e.target.hasAttribute('data-color-value')) {
+        await copyToClipboard(e.target.getAttribute('data-color-value'))
+        e.target.classList.add('palette__colors-item__info-color--active')
+        setTimeout(() => {
+            e.target.classList.remove('palette__colors-item__info-color--active')
+        }, 2000)
     }
 })
 
-// Выход палитры за пределы контейнера, на маленьких устройствах
-const setPaletteOffset = () => {
-    if (window.matchMedia('(max-width: 991px)').matches && window.matchMedia('(min-width: 768px)').matches) {
-        paletteColors.forEach(palette => palette.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 50}px`)
-    } else if (window.matchMedia('(max-width: 767px)').matches) {
-        paletteColors.forEach(palette => palette.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 20}px`)
-    }
-}
-
-window.addEventListener('resize', setPaletteOffset)
-setPaletteOffset()
-
-// Выход заднего фона секции "Шрифты" за пределы контейнера, на маленьких устройствах
-const fontsContainer = document.querySelector('.fonts__wrapper > .container')
-const fontsBg = document.querySelector('.fonts__image')
-
-const setFontsBgOffset = () => {
-    if (window.matchMedia('(max-width: 991px)').matches && window.matchMedia('(min-width: 768px)').matches) {
-        fontsBg.style.marginLeft = `-${fontsContainer.getBoundingClientRect().left + 50}px`
-    } else if (window.matchMedia('(max-width: 767px)').matches) {
-        fontsBg.style.marginLeft = `-${fontsContainer.getBoundingClientRect().left + 20}px`
-    }
-}
-
-window.addEventListener('resize', setFontsBgOffset)
-setFontsBgOffset()
+// Добавляем обработчик события прокрутки колесика мыши
+// window.addEventListener('wheel', e => autoScroll(e, 0.8, 100, document.querySelectorAll('section.palette')))

@@ -80,8 +80,7 @@ function scripts() {
     'node_modules/swiper/swiper-bundle.js',
     'node_modules/gsap/dist/gsap.min.js',
     'app/utils/copyToClipboard.js',
-    'app/utils/isVisible.js',
-    'app/utils/autoScrollToElem.js',
+    'app/utils/autoScroll.js',
     'app/js/animations.js',
     'app/js/main.js'
   ])

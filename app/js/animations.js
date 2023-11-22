@@ -243,7 +243,6 @@ gsap.fromTo('.logotype__logo-wrapper', {
 })
 
 // Секция 'Palette'
-
 const paletteColorsBrandQ = gsap.utils.selector('#palette')
 const paletteColorsCatQ = gsap.utils.selector('#palette-cat')
 const paletteColorsDogQ = gsap.utils.selector('#palette-dog')
@@ -273,4 +272,18 @@ gsap.fromTo(paletteColorsDogQ('.palette__colors-item'), {
     stagger: 0.1,
     scrollTrigger: '#palette-dog',
     duration: .5
+})
+
+// Горизонтальный скролл
+let paletteSections = gsap.utils.toArray(".palette")
+gsap.to(paletteSections, {
+    xPercent: -100 * (paletteSections.length - 1),
+    ease: "none",
+    scrollTrigger: {
+        trigger: '.palette__wrapper',
+        pin: true,
+        scrub: 1,
+        snap: 1 / (paletteSections.length - 1),
+        end: "+=4000",
+    }
 })

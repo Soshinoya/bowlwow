@@ -99,7 +99,7 @@
             line-height: 120%;
         }
     }
-    
+
     &__links-list__item-link,
     &__info-communication p,
     &__docs a {
@@ -158,6 +158,7 @@
 
 .promotion {
     &__wrapper {
+        min-height: 100dvh;
         background-color: $bg-color;
     }
 
@@ -507,13 +508,26 @@
     }
 }
 
+body {
+    overscroll-behavior: none;
+}
+
 .palette {
-    display: flex;
-    height: 100vh;
+    width: 100%;
+    height: fit-content;
+
+    &__inner {
+        display: flex;
+        height: 100vh;
+    }
 
     &__wrapper {
-        overflow: hidden;
         background-color: #f5f8fd;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 300%;
+        height: fit-content;
+        overscroll-behavior: none;
     }
 
     &__content {
@@ -553,6 +567,18 @@
         flex: 0 0 67%;
     }
 
+    &:first-child {
+        .palette__colors-item {
+            &:hover {
+                flex-grow: 1;
+            }
+
+            &__info {
+                display: flex;
+            }
+        }
+    }
+
     &__colors-item {
         display: flex;
         align-items: flex-end;
@@ -560,20 +586,20 @@
 
         cursor: pointer;
         transition: flex-grow 0.5s $transitionTimingFunc;
-
-        .palette__colors-item__info {
+        
+        &__info {
             display: none;
+
+            p.palette__colors-item__info-color--active::after {
+                opacity: 1;
+            }
         }
 
-        &--active {
+        &:hover {
             flex-grow: 1.5;
 
             .palette__colors-item__info {
                 display: flex;
-
-                & p:nth-child(2)::after {
-                    opacity: 1;
-                }
             }
         }
     }
@@ -609,7 +635,7 @@
             font-size: 20px;
             width: fit-content;
 
-            &:nth-child(2)::after {
+            &::after {
                 content: "";
                 position: absolute;
                 width: 20px;
@@ -628,7 +654,7 @@
         &--white {
             color: $white-color;
 
-            p:nth-child(2)::after {
+            p::after {
                 @include bg-img(null, null, "../images/sprite.svg#copy", no-repeat, cover, center center);
             }
 
@@ -641,6 +667,7 @@
 
 .fonts {
     display: flex;
+    max-height: 100dvh;
 
     &__title::before {
         content: '05';
@@ -666,7 +693,7 @@
 
     &__image {
         flex: 0 0 56%;
-        min-width: calc(56% + ((100vw - 1170px) / 2));
+        min-width: calc(56% + ((100vw - 830px) / 2));
 
         img {
             width: 100%;

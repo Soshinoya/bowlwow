@@ -7,7 +7,6 @@
     "start": "gulp",
     "doSvgSprite": "gulp doSvgSprite",
     "minifyImages": "gulp img",
-    "preinstall": "npx npm-force-resolutions",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Soshinoya",
@@ -33,9 +32,5 @@
   "dependencies": {
     "bootstrap": "^5.3.2",
     "gsap": "^3.12.2"
-  },
-
-  "overrides": {
-    "graceful-fs": "^4.2.11"
   }
 }
