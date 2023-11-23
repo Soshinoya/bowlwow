@@ -612,3 +612,12 @@
         }
     }
 }
+
+@media (min-height: 1000px) {
+    .promotion {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: inherit;
+    }
+}

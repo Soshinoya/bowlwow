@@ -287,3 +287,15 @@ gsap.to(paletteSections, {
         end: "+=4000",
     }
 })
+
+b = 0;
+
+const func = () => {
+    if (b < 100) {
+        b += 10
+        console.log(b)
+        func()
+    }
+}
+
+func()
