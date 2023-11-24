@@ -72,23 +72,25 @@ paletteColors.forEach(list => {
     }
 })
 
-// Добавляем обработчик события прокрутки колесика мыши
-// window.addEventListener('wheel', e => autoScroll(e, 0.8, 100, document.querySelectorAll('section.palette')))
-
 const packages = document.querySelector('.packages')
 const packagesImageHeight = document.querySelector('.packages__image--left').getBoundingClientRect().height
-const packagesPaddingTop = parseInt(window.getComputedStyle(packages).getPropertyValue('padding-top'))
+const packagesImageMiniHeight = document.querySelector('.packages__image--mini').getBoundingClientRect().height
+// const packagesPaddingTop = parseInt(window.getComputedStyle(packages).getPropertyValue('padding-top'))
 document.querySelector('.packages__image--left').style.height = `${packagesImageHeight}px`
 document.querySelector('.packages__image--right').style.height = `${packagesImageHeight}px`
+document.querySelector('.packages__image--mini').style.height = `${packagesImageMiniHeight}px`
 
 jarallax(document.querySelector('.packages__image--left'), {
-    speed: 0.4,
-    imgPosition: 'top',
-    containerClass: '.packages__body'
+    speed: 0.6,
+    imgPosition: 'top'
 })
 
 jarallax(document.querySelector('.packages__image--right'), {
-    speed: 0.6,
-    imgPosition: 'top',
-    containerClass: '.packages__body'
+    speed: 0.7,
+    imgPosition: 'top'
+})
+
+jarallax(document.querySelector('.packages__image--mini'), {
+    speed: 0.8,
+    imgPosition: 'center -70%'
 })

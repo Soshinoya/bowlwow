@@ -102,6 +102,8 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.menu__close')
     ].forEach(elem => elem.addEventListener('click', toggleMenu))
 
+    document.querySelectorAll('.menu-nav__item').forEach(elem => elem.addEventListener('click', toggleMenu))
+
     // Упаковки
     gsap.fromTo('.packages__title', { y: '200%', opacity: 0 }, { scrollTrigger: '.section-template__header-title', y: 0, opacity: 1, duration: 1 })
 
@@ -116,7 +118,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }, {
         scrollTrigger: {
             trigger: '.packages',
-            start: 'top 15%'
+            start: window.matchMedia('(max-width: 991px)').matches ? 'top 40%' : 'top 15%'
         },
         x: 0,
         duration: .5
@@ -127,7 +129,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }, {
         scrollTrigger: {
             trigger: '.packages',
-            start: 'top 15%'
+            start: window.matchMedia('(max-width: 991px)').matches ? 'top 40%' : 'top 15%'
         },
         x: '0',
         delay: .5,
@@ -187,22 +189,6 @@ window.addEventListener('DOMContentLoaded', () => {
             trigger: selector.trigger,
             start: 'bottom bottom',
             end: 'bottom top',
-            // onEnter: () => {
-            //     if (i === arr[arr.length - 1]) return
-
-            //     const wrapperHeight = document.querySelector('.logotype__wrapper').getBoundingClientRect().height
-            //     const logotypeSectionHeight = document.querySelector('.logotype').getBoundingClientRect().height
-
-            //     window.scrollTo({
-            //         top: (i === 0 ? wrapperHeight : logotypeSectionHeight) + window.scrollY - 200
-            //     })
-            // },
-            // onEnterBack: () => {
-            //     if (i === 0) return
-            //     window.scrollTo({
-            //         top: window.scrollY - document.querySelector('.logotype').getBoundingClientRect().height
-            //     })
-            // },
             scrub: .5
         },
         autoAlpha: 0

@@ -437,6 +437,11 @@
         width: 100%;
     }
 
+    &__image--mini {
+        display: none;
+        width: 350px;
+    }
+
     &__dog {
         position: absolute;
         left: 50px;
@@ -450,7 +455,6 @@
 }
 
 .logotype {
-    // height: 100vh;
     display: flex;
     align-items: center;
 
@@ -640,30 +644,15 @@ body {
         gap: 10px;
         margin: 0 0 118px 104px;
 
-        &::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            bottom: -30px;
-            left: 0;
-
-            @include bg-img(null, null, "../images/sprite.svg#copy--black", no-repeat, cover, center center);
-        }
-
-        &::after {
-            content: 'Скопировать';
-            position: absolute;
-            bottom: -30px;
-            left: 30px;
-
-            @include font(14px, 140%);
-        }
-
+        
         p {
             position: relative;
             font-size: 20px;
             width: fit-content;
+            
+            &:last-child {
+                display: none;
+            }
 
             &::after {
                 content: "";

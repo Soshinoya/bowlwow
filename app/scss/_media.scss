@@ -210,6 +210,10 @@
 
             p {
                 @include font(14px, normal);
+
+                &:last-child {
+                    display: block;
+                }
             }
 
             p,
@@ -221,7 +225,7 @@
         }
 
         &__colors-item {
-            padding: 20px 20px 50px 20px;
+            padding: 20px;
         }
     }
 
@@ -354,6 +358,30 @@
 
         &__container {
             padding: 0 20px;
+        }
+    }
+
+    .packages {
+        &__body {
+            flex-direction: column;
+        }
+
+        &__header {
+            margin-bottom: 40px;
+        }
+
+        &__image {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__image--left,
+        &__image--right {
+            display: none;
+        }
+
+        &__image--mini {
+            display: block;
         }
     }
 
@@ -594,33 +622,10 @@
     }
 }
 
-// @media (min-width: 480px) {
-//     .packages__image {
-//         img:last-child {
-//             display: none;
-//         }
-//     }
-// }
-
 @media (max-width: 480px) {
     .promotion {
         &__image-bowl {
             right: 76px;
-        }
-    }
-
-    .packages__image {
-        display: flex;
-        justify-content: center;
-
-        img {
-            &:first-child {
-                display: none;
-            }
-
-            &:last-child {
-                display: block;
-            }
         }
     }
 
