@@ -440,6 +440,10 @@
     &__image--mini {
         display: none;
         width: 350px;
+
+        img {
+            margin: 0 auto;
+        }
     }
 
     &__dog {
@@ -553,6 +557,11 @@ body {
     &__inner {
         display: flex;
         height: 100vh;
+    }
+
+    &__holder {
+        max-width: 100vw;
+        overflow: hidden;
     }
 
     &__wrapper {

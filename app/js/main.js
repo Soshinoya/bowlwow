@@ -89,8 +89,3 @@ jarallax(document.querySelector('.packages__image--right'), {
     speed: 0.7,
     imgPosition: 'top'
 })
-
-jarallax(document.querySelector('.packages__image--mini'), {
-    speed: 0.8,
-    imgPosition: 'center -70%'
-})

@@ -284,7 +284,7 @@ window.addEventListener('DOMContentLoaded', () => {
             pin: true,
             scrub: 1,
             snap: 1 / (paletteSections.length - 1),
-            end: "+=4000",
+            end: window.matchMedia('(max-width: 991px)').matches ? "+=1500" : "+=4000",
         }
     })
 

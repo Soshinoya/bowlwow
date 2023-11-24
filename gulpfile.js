@@ -2,19 +2,19 @@ const { src, dest, watch, parallel, series } = require('gulp');
 
 
 
-const gulp           = require('gulp');
-const scss           = require('gulp-sass')(require('sass'));
-const concat         = require('gulp-concat');
-const autoprefixer   = require('gulp-autoprefixer');
-const uglify         = require('gulp-uglify');
-const rename         = require('gulp-rename');
-const imagemin       = require('gulp-imagemin');
-const htmlmin        = require('gulp-htmlmin');
-const del            = require('del');
-const { notify }     = require('browser-sync');
-const browserSync    = require('browser-sync').create();
-const jade           = require('gulp-jade');
-const svgSprite      = require('gulp-svg-sprite');
+const gulp = require('gulp');
+const scss = require('gulp-sass')(require('sass'));
+const concat = require('gulp-concat');
+const autoprefixer = require('gulp-autoprefixer');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const imagemin = require('gulp-imagemin');
+const htmlmin = require('gulp-htmlmin');
+const del = require('del');
+const { notify } = require('browser-sync');
+const browserSync = require('browser-sync').create();
+const jade = require('gulp-jade');
+const svgSprite = require('gulp-svg-sprite');
 
 function jadeCompiler() {
   return src('app/*.jade')
@@ -41,12 +41,12 @@ function doSvgSprite() {
     'app/images/logo/*.svg'
   ]) // svg files for sprite
     .pipe(svgSprite({
-            mode: {
-                stack: {
-                    sprite: "../sprite.svg" //sprite file name
-                }
-            },
+      mode: {
+        stack: {
+          sprite: "../sprite.svg" //sprite file name
         }
+      },
+    }
     ))
     .pipe(gulp.dest('app/images/'))
 }
@@ -62,7 +62,7 @@ function browsersync() {
 
 function styles() {
   return src('app/scss/*.scss')
-    .pipe(scss({outputStyle: 'compressed'}))
+    .pipe(scss({ outputStyle: 'compressed' }))
     .pipe(rename({
       suffix: '.min'
     }))
@@ -85,10 +85,10 @@ function scripts() {
     'app/js/animations.js',
     'app/js/main.js'
   ])
-  .pipe(concat('main.min.js'))
-  .pipe(uglify())
-  .pipe(dest('app/js'))
-  .pipe(browserSync.stream())
+    .pipe(concat('main.min.js'))
+    .pipe(uglify())
+    .pipe(dest('app/js'))
+    .pipe(browserSync.stream())
 }
 
 function dist() {
@@ -96,12 +96,28 @@ function dist() {
     'app/**/*.html',
     'app/css/**/*.css',
     'app/js/main.min.js'
-  ], {base: 'app'})
-  .pipe(dest('dist'))
+  ], { base: 'app' })
+    .pipe(dest('dist'))
+}
+
+function build() {
+  src([
+    'app/**/*.html',
+    'app/css/**/*.css',
+    'app/js/main.min.js'
+  ], { base: 'app' })
+    .pipe(dest('build'));
+  src('app/fonts/**/*.*').pipe(dest('build/fonts/'));
+  src('app/images/**/*.*').pipe(dest('build/images/'));
+  return null
 }
 
 function cleanDist() {
   return del('dist')
+}
+
+function cleanBuild() {
+  return del('build')
 }
 
 function watching() {
@@ -124,6 +140,7 @@ exports.jadeCompiler = jadeCompiler;
 exports.doSvgSprite = doSvgSprite;
 exports.cleanDist = cleanDist;
 exports.dist = series(cleanDist, dist);
+exports.build = series(cleanBuild, build);
 
 
 exports.default = parallel(jadeCompiler, styles, scripts, browsersync, watching);

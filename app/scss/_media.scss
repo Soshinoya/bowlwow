@@ -154,6 +154,10 @@
             .row {
                 gap: 20px;
             }
+
+            .download-button {
+                width: 100%;
+            }
         }
 
         &__download-button {
@@ -531,10 +535,9 @@
     .logotype {
         max-height: fit-content !important;
         padding-bottom: 45px;
-        padding-bottom: 0;
 
         &__inner {
-            padding-bottom: 45px;
+            padding-bottom: 0;
         }
 
         &__header {
@@ -542,12 +545,10 @@
         }
 
         &__body {
+            gap: 20px;
+            
             .col-lg-4:last-child {
                 order: -1;
-            }
-
-            .download-button {
-                width: 100%;
             }
         }
     }
@@ -559,7 +560,7 @@
 
         &__inner {
             padding: 0;
-            gap: 100px;
+            gap: 20px;
             justify-content: flex-end;
         }
 
@@ -577,6 +578,8 @@
     }
 
     .fonts {
+        max-height: 100%;
+
         &__body {
             padding: 50px 0 41px;
         }
@@ -586,9 +589,13 @@
             gap: 40px;
         }
 
-        &__image img {
-            width: 323px;
-            height: 345px;
+        &__image {
+            margin-right: -20px;
+
+            img {
+                width: 323px;
+                height: 345px;
+            }
         }
     }
 
@@ -669,7 +676,7 @@
     }
 }
 
-@media (max-height: 900px) {
+@media (max-height: 900px) and (min-width: 991px) {
     .logotype {
         &__inner {
             padding-bottom: 100px;
@@ -685,7 +692,7 @@
     }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 800px) and (min-width: 991px) {
     .logotype {
         &__logo-wrapper {
             width: 400px;

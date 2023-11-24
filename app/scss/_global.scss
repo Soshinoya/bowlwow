@@ -15,7 +15,6 @@ body {
 body.body {
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
 
     @include font(16px, 162%, $black-color) {
         @extend %stratos-lc-web-400;
