@@ -165,15 +165,17 @@
     &__content {
         position: relative;
         padding: 63px 0 135px;
+    }
 
-        @include pseudo-elem(after, "", absolute, null, null, 72px, 50%) {
-            width: 16px;
-            height: 42px;
-            transform: translateX(-50%);
-            background-image: url(../images/icons/arrow-down.svg);
-            cursor: pointer;
-            z-index: 1;
-        }
+    &__content-arrow {
+        position: absolute;
+        height: 42px;
+        width: 16px;
+        background-image: url(../images/icons/arrow-down.svg);
+        cursor: pointer;
+        z-index: 1;
+        left: 50%;
+        transform: translateY(22px) translateX(-50%);
     }
 
     &__body,
@@ -239,7 +241,7 @@
 
     &__line--bottom {
         height: 50px;
-        left: 0;
+        left: 50px;
         bottom: 0;
     }
 
@@ -263,7 +265,22 @@
 }
 
 .promotion-header {
-    padding-top: 47px;
+    padding: 30px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    background: transparent;
+    backdrop-filter: none;
+
+    transition-property: background backdrop-filter;
+    transition-duration: .3s;
+    transition-timing-function: $transitionTimingFunc;
+
+    &--active {
+        background: rgba(208, 206, 220, 0.4);
+        backdrop-filter: blur(5px);
+    }
 
     &__container {
         max-width: 1538px;
@@ -392,22 +409,31 @@
 
 .packages {
     position: relative;
-    padding-top: 120px;
     background-color: #ebebeb;
+
+    &__header {
+        padding-top: 120px;
+    }
 
     &__title::before {
         content: "02";
     }
 
     &__body {
-        margin-top: 74px;
         display: flex;
         height: 100%;
     }
 
     &__image {
         margin-left: auto;
-        max-width: 766px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__image--left,
+    &__image--right {
+        max-width: 358px;
         width: 100%;
     }
 
@@ -424,7 +450,7 @@
 }
 
 .logotype {
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     align-items: center;
 
@@ -443,6 +469,10 @@
         flex-direction: column;
         justify-content: center;
         gap: 79px;
+    }
+
+    &__inner {
+        padding: 125px 0 152px;
     }
 
     &__header {
@@ -586,7 +616,7 @@ body {
 
         cursor: pointer;
         transition: flex-grow 0.5s $transitionTimingFunc;
-        
+
         &__info {
             display: none;
 
@@ -709,34 +739,31 @@ body {
 
 .fonts-field {
     &__title {
-        margin-bottom: 10px;
-    }
-
-    &__weight {
         margin-bottom: 20px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     &__description {
         @include font(20px, normal, #000);
     }
 
-    &__title,
-    &__weight {
+    &__title {
         @include font(60px, normal, #1D1D1B);
     }
 
     &:first-child {
 
-        .fonts-field__title,
-        .fonts-field__weight {
+        .fonts-field__title {
             @extend %bebas-neue-400;
         }
     }
 
     &:nth-child(2) {
 
-        .fonts-field__title,
-        .fonts-field__weight {
+        .fonts-field__title {
             @extend %montserrat-400;
 
             bold {

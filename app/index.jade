@@ -12,12 +12,12 @@ html(lang='ru')
         include ./components/atoms/DownloadButton.jade
 
         +basicTemplate()
-            .promotion__wrapper
+            .promotion__wrapper(style="opacity: 0;")
                 section.promotion
                     .promotion-header
                         .promotion-header__container
                             .promotion-header__inner
-                                .promotion-header__burger-link(onclick="toggleMenu()")
+                                .promotion-header__burger-link
                                     a меню
                         .menu
                             .menu__inner
@@ -32,11 +32,11 @@ html(lang='ru')
                                         - const menuNavList = [{ label: 'О бренде', link: '#about' }, { label: 'Упаковки', link: '#packages' }, { label: 'Логотип', link: '#logotype' }, { label: 'Цветовая гамма', link: '#palette' }, { label: 'Шрифты', link: '#fonts' }, { label: 'Скачать', link: '#materials' }, { label: 'Фотостиль', link: '#photostyle' }];
                                         - menuNavList.forEach((item, index) => {
                                         -   const num = `0${index + 1}`
-                                            li.menu-nav__item(onclick="toggleMenu()")
+                                            li.menu-nav__item
                                                 h3= num
                                                 a.menu-nav__item-link(href='#{item.link}')= item.label
                                         - })
-                                .menu__close(onclick="toggleMenu()")
+                                .menu__close
                                     h3 Закрыть
                     .promotion__content
                         .container
@@ -47,7 +47,8 @@ html(lang='ru')
                                         use(xlink:href="./images/sprite.svg#bowl-wow-natural-balanced")
                                 p.promotion__text BOWL WOW [боул вау] — бренд суперпремиальных кормов для животных, разрабатываемых с любовью и производящихся под строгим контролем.
                                 p.promotion__text Мы сфокусированы на экспертизе и качестве — не только в содержании (наших продуктах), но и в форме (как выглядит наш бренд). Поэтому мы создали этот раздел, чтобы все нужные материалы и правила их использования были всегда у вас под рукой.
-                            +downloadButton('#downloadMaterials', 'promotion__download-button', 'Скачать материалы')
+                            +downloadButton('#materials', 'promotion__download-button', 'Скачать материалы')
+                        a.promotion__content-arrow(href="#packages")
                 .promotion__line--left
                     .screen__line--first
                         .screen__line--second
@@ -71,14 +72,26 @@ html(lang='ru')
                                         .screen__line--sixth
                 img(class="promotion__image-bowl" src="./images/content/promotion-bowl.webp" alt="миска" loading="lazy" srcset="./images/content/promotion-bowl.webp 1x, ./images/content/promotion-bowl@2x.webp 2x")
                 img(class="promotion__image-dog" src="./images/content/indoor-plant-wooden-floor.webp" alt="собака" loading="lazy" srcset="./images/content/indoor-plant-wooden-floor.webp 1x, ./images/content/indoor-plant-wooden-floor@2x.webp 2x")
-            +section('white', 'packages', 'Упаковки')
-                .packages__dog
-                    img(src="./images/content/packages-dog.webp" alt="Собака" srcset="./images/content/packages-dog.webp 1x, ./images/content/packages-dog@2x.webp 2x")
-                .packages__cat
-                    img(src="./images/content/packages-cat.webp" alt="Кот" srcset="./images/content/packages-cat.webp 1x, ./images/content/packages-cat@2x.webp 2x")
-                .packages__image
-                    img(src="./images/content/packages.webp" alt="упаковки")
-                    img(src="./images/content/packages--mini.webp" alt="упаковки" srcset="./images/content/packages--mini.webp 1x, ./images/content/packages--mini@2x.webp 2x")
+            
+            section(class="packages section-template section-template--white" id="packages")
+                .container
+                    div(class="packages__inner")
+                        div(class="packages__body")
+                            div(class="packages__header section-template__header")
+                                h3(class="packages__title section-template__header-title") Упаковки
+                            .packages__dog
+                                img(src="./images/content/packages-dog.webp" alt="Собака" srcset="./images/content/packages-dog.webp 1x, ./images/content/packages-dog@2x.webp 2x")
+                            .packages__cat
+                                img(src="./images/content/packages-cat.webp" alt="Кот" srcset="./images/content/packages-cat.webp 1x, ./images/content/packages-cat@2x.webp 2x")
+                            .packages__image
+                                .jarallax.packages__image--left
+                                    img.jarallax-img(src='./images/content/packages--left.webp' alt='упаковки' srcset="./images/content/packages--left.webp 1x, ./images/content/packages--left@2x.webp 2x")
+                                .jarallax.packages__image--right
+                                    img.jarallax-img(src='./images/content/packages--right.webp' alt='упаковки' srcset="./images/content/packages--right.webp 1x, ./images/content/packages--right@2x.webp 2x")
+
+
+                                //- img(src="./images/content/packages.webp" alt="упаковки")
+                                //- img(src="./images/content/packages--mini.webp" alt="упаковки" srcset="./images/content/packages--mini.webp 1x, ./images/content/packages--mini@2x.webp 2x")
             .logotype__wrapper
                 +section('white', 'logotype', 'Логотип')
                     .logotype__logo-wrapper
@@ -88,10 +101,10 @@ html(lang='ru')
                                     .logotype__logo--fourth
                     .row
                         .col-lg-4
-                            .logotype__text
+                            .logotype__text.logotype__text--first
                                 p Логотип является базовым и обязательным элементом дизайн-системы. Это основной элемент маркировки всех материалов, его наличие определяет всю информацию на носителе, как относящуюся  к бренду BOWL WOW.  
                         .col-lg-4
-                            .logotype__text
+                            .logotype__text.logotype__text--second
                                 p Его можно использовать с дескриптором или без. Дескриптор не должен использоваться на носителях небольшого размера. По необходимости можно использовать дополнительные версии логотипа с индикатором типа животного.
                         .col-lg-4
                             +downloadButton('#downloadLogo', 'logotype__download-button', 'Скачать логотип')
@@ -101,112 +114,112 @@ html(lang='ru')
                 section.logotype--fifth
 
             .palette__wrapper
-                    section.palette.palette--first#palette
-                        .container
-                            .palette__inner
-                                .palette__content
-                                    .palette__body
-                                        .palette__header.section-template__header
-                                            h3.palette__title.section-template__header-title цветовая палитра
-                                        .palette__main
-                                            h2.palette__main-title brand
-                                        .palette__footer
-                                            p.palette__footer-text Основная гамма бренда. Нельзя смешивать с гаммой собак.
-                                ul.palette__colors
-                                    li.palette__colors-item(style="background-color: #ffffff;")
-                                        .palette__colors-item__info
-                                            p(data-color-value="7641 C") Pantone 7641 C
-                                            p(data-color-value="#922c48") web #922c48
-                                            p(data-color-value="29,90,47,29") CMYK 29 90 47 29
-                                    li.palette__colors-item(style="background-color: #1E1E1C;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="7641C") Pantone 7641 C
-                                            p(data-color-value="#922c48") web #922c48
-                                            p(data-color-value="29,90,47,29") CMYK 29 90 47 29
-                    section.palette#palette-cat
-                        .container
-                            .palette__inner
-                                .palette__content
-                                    .palette__body
-                                        .palette__header.section-template__header
-                                            h3.palette__title.section-template__header-title цветовая палитра
-                                        .palette__main
-                                            h2.palette__main-title CATS
-                                        .palette__footer
-                                            p.palette__footer-text Основная гамма бренда. Нельзя смешивать с гаммой собак.
-                                ul.palette__colors
-                                    li.palette__colors-item(style="background-color: #922c48;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="7641 C") Pantone - 7641 C
-                                            p(data-color-value="#922c48") web #922c48
-                                            p(data-color-value="29,90,47,29") CMYK 29 90 47 29
-                                    li.palette__colors-item(style="background-color: #f29934;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="2011 C") Pantone 2011 C
-                                            p(data-color-value="#f29934") web #f29934
-                                            p(data-color-value="2,47,84,0") CMYK 2 47 84 0
-                                    li.palette__colors-item(style="background-color: #feaebb;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="0331 C") Pantone Red 0331 C
-                                            p(data-color-value="#feaebb") web #feaebb
-                                            p(data-color-value="0,43,14,0") CMYK 0 43 14 0
-                                    li.palette__colors-item(style="background-color: #6e7ba0;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="7667 C") Pantone 7667 C
-                                            p(data-color-value="#6e7ba0") web #6e7ba0
-                                            p(data-color-value="63,48,20,4") CMYK 63 48 20 4
-                    section.palette#palette-dog
-                        .container
-                            .palette__inner
-                                .palette__content
-                                    .palette__body
-                                        .palette__header.section-template__header
-                                            h3.palette__title.section-template__header-title цветовая палитра
-                                        .palette__main
-                                            h2.palette__main-title DOGS
-                                        .palette__footer
-                                            p.palette__footer-text Дополнительная гамма бренда. Нельзя смешивать с гаммой кошек.
-                                ul.palette__colors
-                                    li.palette__colors-item(style="background-color: #e5bec3;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="Pantone 692 C") Pantone 692 C
-                                            p(data-color-value="#e5bec3") web #e5bec3
-                                            p(data-color-value="10,31,17,0") CMYK 10 31 17 0
-                                    li.palette__colors-item(style="background-color: #96262c;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="7622 C") Pantone 7622 C
-                                            p(data-color-value="#96262c") web #96262c
-                                            p(data-color-value="27,94,77,27") CMYK 27 94 77 27
-                                    li.palette__colors-item(style="background-color: #ff8300;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="151 C") Pantone 151 C
-                                            p(data-color-value="#ff8300") web #ff8300
-                                            p(data-color-value="0,59,94,0") CMYK 0 59 94 0
-                                    li.palette__colors-item(style="background-color: #ab0033;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="207 C") Pantone 207 C
-                                            p(data-color-value="#ab0033") web #ab0033
-                                            p(data-color-value="22,100,67,17") CMYK 22 100 67 17
-                                    li.palette__colors-item(style="background-color: #006241;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="3425 C") Pantone 3425 C
-                                            p(data-color-value="#006241") web #006241
-                                            p(data-color-value="96,33,82,29") CMYK 96 33 82 29
-                                    li.palette__colors-item(style="background-color: #d65d72;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="702 C") Pantone 702 C
-                                            p(data-color-value="#d65d72") web #d65d72
-                                            p(data-color-value="11,75,39,2") CMYK 11 75 39 2
-                                    li.palette__colors-item(style="background-color: #93a7cb;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="7681 C") Pantone 7681 C
-                                            p(data-color-value="#93a7cb") web #93a7cb
-                                            p(data-color-value="48,30,8,0") CMYK 48 30 8 0
-                                    li.palette__colors-item(style="background-color: #007580;")
-                                        .palette__colors-item__info.palette__colors-item__info--white
-                                            p(data-color-value="7714 C") Pantone 7714 C
-                                            p(data-color-value="#007580") web #007580
-                                            p(data-color-value="99,26,43,15") CMYK 99 26 43 15
+                section.palette.palette--first#palette
+                    .container
+                        .palette__inner
+                            .palette__content
+                                .palette__body
+                                    .palette__header.section-template__header
+                                        h3.palette__title.section-template__header-title цветовая палитра
+                                    .palette__main
+                                        h2.palette__main-title brand
+                                    .palette__footer
+                                        p.palette__footer-text Основная гамма бренда. Нельзя смешивать с гаммой собак.
+                            ul.palette__colors
+                                li.palette__colors-item(style="background-color: #ffffff;")
+                                    .palette__colors-item__info
+                                        p(data-color-value="7641 C") Pantone 7641 C
+                                        p(data-color-value="#922c48") web #922c48
+                                        p(data-color-value="29,90,47,29") CMYK 29 90 47 29
+                                li.palette__colors-item(style="background-color: #1E1E1C;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="7641C") Pantone 7641 C
+                                        p(data-color-value="#922c48") web #922c48
+                                        p(data-color-value="29,90,47,29") CMYK 29 90 47 29
+                section.palette#palette-cat
+                    .container
+                        .palette__inner
+                            .palette__content
+                                .palette__body
+                                    .palette__header.section-template__header
+                                        h3.palette__title.section-template__header-title цветовая палитра
+                                    .palette__main
+                                        h2.palette__main-title CATS
+                                    .palette__footer
+                                        p.palette__footer-text Основная гамма бренда. Нельзя смешивать с гаммой собак.
+                            ul.palette__colors
+                                li.palette__colors-item(style="background-color: #922c48;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="7641 C") Pantone - 7641 C
+                                        p(data-color-value="#922c48") web #922c48
+                                        p(data-color-value="29,90,47,29") CMYK 29 90 47 29
+                                li.palette__colors-item(style="background-color: #f29934;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="2011 C") Pantone 2011 C
+                                        p(data-color-value="#f29934") web #f29934
+                                        p(data-color-value="2,47,84,0") CMYK 2 47 84 0
+                                li.palette__colors-item(style="background-color: #feaebb;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="0331 C") Pantone Red 0331 C
+                                        p(data-color-value="#feaebb") web #feaebb
+                                        p(data-color-value="0,43,14,0") CMYK 0 43 14 0
+                                li.palette__colors-item(style="background-color: #6e7ba0;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="7667 C") Pantone 7667 C
+                                        p(data-color-value="#6e7ba0") web #6e7ba0
+                                        p(data-color-value="63,48,20,4") CMYK 63 48 20 4
+                section.palette#palette-dog
+                    .container
+                        .palette__inner
+                            .palette__content
+                                .palette__body
+                                    .palette__header.section-template__header
+                                        h3.palette__title.section-template__header-title цветовая палитра
+                                    .palette__main
+                                        h2.palette__main-title DOGS
+                                    .palette__footer
+                                        p.palette__footer-text Дополнительная гамма бренда. Нельзя смешивать с гаммой кошек.
+                            ul.palette__colors
+                                li.palette__colors-item(style="background-color: #e5bec3;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="Pantone 692 C") Pantone 692 C
+                                        p(data-color-value="#e5bec3") web #e5bec3
+                                        p(data-color-value="10,31,17,0") CMYK 10 31 17 0
+                                li.palette__colors-item(style="background-color: #96262c;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="7622 C") Pantone 7622 C
+                                        p(data-color-value="#96262c") web #96262c
+                                        p(data-color-value="27,94,77,27") CMYK 27 94 77 27
+                                li.palette__colors-item(style="background-color: #ff8300;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="151 C") Pantone 151 C
+                                        p(data-color-value="#ff8300") web #ff8300
+                                        p(data-color-value="0,59,94,0") CMYK 0 59 94 0
+                                li.palette__colors-item(style="background-color: #ab0033;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="207 C") Pantone 207 C
+                                        p(data-color-value="#ab0033") web #ab0033
+                                        p(data-color-value="22,100,67,17") CMYK 22 100 67 17
+                                li.palette__colors-item(style="background-color: #006241;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="3425 C") Pantone 3425 C
+                                        p(data-color-value="#006241") web #006241
+                                        p(data-color-value="96,33,82,29") CMYK 96 33 82 29
+                                li.palette__colors-item(style="background-color: #d65d72;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="702 C") Pantone 702 C
+                                        p(data-color-value="#d65d72") web #d65d72
+                                        p(data-color-value="11,75,39,2") CMYK 11 75 39 2
+                                li.palette__colors-item(style="background-color: #93a7cb;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="7681 C") Pantone 7681 C
+                                        p(data-color-value="#93a7cb") web #93a7cb
+                                        p(data-color-value="48,30,8,0") CMYK 48 30 8 0
+                                li.palette__colors-item(style="background-color: #007580;")
+                                    .palette__colors-item__info.palette__colors-item__info--white
+                                        p(data-color-value="7714 C") Pantone 7714 C
+                                        p(data-color-value="#007580") web #007580
+                                        p(data-color-value="99,26,43,15") CMYK 99 26 43 15
 
             .fonts__wrapper
                 .container
@@ -217,24 +230,26 @@ html(lang='ru')
                                     h3.fonts__title.section-template__header-title Шрифты
                                 .fonts__inner
                                     .fonts-field
-                                        h3.fonts-field__title BEBAS NEUE CYRILLIC
-                                        h3.fonts-field__weight REGULAR
+                                        h3.fonts-field__title
+                                            span BEBAS NEUE CYRILLIC
+                                            span REGULAR
                                         p.fonts-field__description Шрифт для заголовков и акцентных текстов
                                     .fonts-field
-                                        h3.fonts-field__title MONTSERRAT
-                                        h3.fonts-field__weight MEDIUM / 
-                                            bold BOLD
+                                        h3.fonts-field__title
+                                            span MONTSERRAT
+                                            span MEDIUM / 
+                                                bold BOLD
                                         p.fonts-field__description Шрифт для основного текста документов
                         .fonts__image
-                            img(src="./images/sprite.svg#fonts-background", alt="фон с буквами")
+                            img(src="./images/sprite.svg#fonts-background" alt="фон с буквами")
 
             +section('dark', 'photostyle', 'Фотостиль')
                 .photostyle__info
                     .row
                         .col-md-6
-                            p.photostyle__text Для фонов используются стильные светлые белые «дышащие» пространства преимущественно нейтральных или прохладных оттенков. Где нужно — сочные (но естественные) натуральные ингредиенты.
+                            p.photostyle__text.photostyle__text--first Для фонов используются стильные светлые белые «дышащие» пространства преимущественно нейтральных или прохладных оттенков. Где нужно — сочные (но естественные) натуральные ингредиенты.
                         .col-md-6
-                            p.photostyle__text Животные для маркетинговых материалов должны быть в естественных позах, идеально в движении (бег, лежа, поднятая лапка и т.д). Рекомендуется избегать нереалистичные позы и странные выражения мордочек.
+                            p.photostyle__text.photostyle__text--second Животные для маркетинговых материалов должны быть в естественных позах, идеально в движении (бег, лежа, поднятая лапка и т.д). Рекомендуется избегать нереалистичные позы и странные выражения мордочек.
                 .photostyle__slider
                     .swiper
                         .swiper-wrapper
