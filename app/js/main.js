@@ -64,10 +64,26 @@ paletteColors.forEach(list => {
     if (window.matchMedia('(max-width: 991px) and (min-width: 768px)').matches) {
         list.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 50}px`
     } else if (window.matchMedia('(min-width: 992px)').matches) {
-        // list.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 20}px`
         return
     } else {
+        list.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 20}px`
     }
+})
+
+// Выбираем элементы
+const paletteColorsItems = document.querySelectorAll('.palette__colors-item')
+
+paletteColors.forEach(paletteColor => {
+    paletteColor.addEventListener('mouseover', e => {
+        if (e.target.closest('.palette__colors-item')) {
+            e.target.closest('.palette__colors').classList.add('palette__colors-hover--onitem')
+        } else {
+            e.target.closest('.palette__colors').classList.remove('palette__colors-hover--onitem')
+        }
+    })
+    paletteColor.addEventListener('mouseleave', e => {
+        e.target.classList.remove('palette__colors-hover--onitem')
+    })
 })
 
 const packagesImageLeftClass = window.matchMedia('(max-width: 991px)').matches ? '.packages__image--left__tablet' : '.packages__image--left__desktop'
