@@ -431,7 +431,12 @@
         justify-content: flex-end;
     }
 
-    &__image--left,
+    &__image--left__tablet {
+        display: none;
+    }
+
+    &__image--left__desktop,
+    &__image--left__tablet,
     &__image--right {
         max-width: 358px;
         width: 100%;

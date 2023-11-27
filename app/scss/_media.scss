@@ -134,6 +134,14 @@
             max-width: 400px;
         }
 
+        &__image--left__tablet {
+            display: block;
+        }
+
+        &__image--left__desktop {
+            display: none;
+        }
+
         &__dog {
             width: 300px !important;
         }
@@ -379,7 +387,7 @@
             justify-content: center;
         }
 
-        &__image--left,
+        &__image--left__tablet,
         &__image--right {
             display: none;
         }
@@ -546,7 +554,7 @@
 
         &__body {
             gap: 20px;
-            
+
             .col-lg-4:last-child {
                 order: -1;
             }

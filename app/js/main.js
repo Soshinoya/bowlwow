@@ -72,20 +72,22 @@ paletteColors.forEach(list => {
     }
 })
 
+const packagesImageLeftClass = window.matchMedia('(max-width: 991px)').matches ? '.packages__image--left__tablet' : '.packages__image--left__desktop'
 const packages = document.querySelector('.packages')
-const packagesImageHeight = document.querySelector('.packages__image--left').getBoundingClientRect().height
+const packagesImageHeight = document.querySelector(packagesImageLeftClass).getBoundingClientRect().height
 const packagesImageMiniHeight = document.querySelector('.packages__image--mini').getBoundingClientRect().height
-// const packagesPaddingTop = parseInt(window.getComputedStyle(packages).getPropertyValue('padding-top'))
-document.querySelector('.packages__image--left').style.height = `${packagesImageHeight}px`
-document.querySelector('.packages__image--right').style.height = `${packagesImageHeight}px`
+
+document.querySelector(packagesImageLeftClass).style.height = `${(window.matchMedia('(max-width: 830px)').matches ? 500 : 0) + packagesImageHeight}px`
+document.querySelector('.packages__image--right').style.height = `${(window.matchMedia('(max-width: 830px)').matches ? 500 : 0) + packagesImageHeight}px`
 document.querySelector('.packages__image--mini').style.height = `${packagesImageMiniHeight}px`
 
-jarallax(document.querySelector('.packages__image--left'), {
+jarallax(document.querySelector(packagesImageLeftClass), {
     speed: 0.6,
     imgPosition: 'top'
 })
 
 jarallax(document.querySelector('.packages__image--right'), {
-    speed: 0.7,
-    imgPosition: 'top'
+    speed: 0.8,
+    imgPosition: 'top',
+    imgSize: 'contain'
 })
