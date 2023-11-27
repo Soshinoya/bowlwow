@@ -79,6 +79,7 @@ function scripts() {
     'node_modules/jquery/dist/jquery.js',
     'node_modules/swiper/swiper-bundle.js',
     'node_modules/gsap/dist/gsap.min.js',
+    'node_modules/smooth-scroll/dist/smooth-scroll.min.js',
     'node_modules/jarallax/dist/jarallax.min.js',
     'app/utils/copyToClipboard.js',
     'app/utils/autoScroll.js',

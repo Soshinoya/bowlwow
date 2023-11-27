@@ -12,8 +12,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
     promotionContent.style.paddingTop = `${promotionImgDog.getBoundingClientRect().height - 75 - 47 - 45}px`
 }
 
-window.onscroll = () => window.scrollY >= 50 ? header.classList.add('promotion-header--active') : header.classList.remove('promotion-header--active')
-
 // 'Photostyle' Slider
 const photostyleSliderConfig = new Swiper('.photostyle__slider > .swiper', {
     spaceBetween: 20,
@@ -90,4 +88,9 @@ jarallax(document.querySelector('.packages__image--right'), {
     speed: 0.8,
     imgPosition: 'top',
     imgSize: 'contain'
+})
+
+const scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 500,
+    speedAsDuration: true
 })

@@ -32,6 +32,7 @@
   "dependencies": {
     "bootstrap": "^5.3.2",
     "gsap": "^3.12.2",
-    "jarallax": "^2.1.4"
+    "jarallax": "^2.1.4",
+    "smooth-scroll": "^16.1.3"
   }
 }

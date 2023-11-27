@@ -270,16 +270,9 @@
     top: 0;
     width: 100%;
     z-index: 2;
-    background: transparent;
-    backdrop-filter: none;
-
-    transition-property: background backdrop-filter;
-    transition-duration: .3s;
-    transition-timing-function: $transitionTimingFunc;
 
     &--active {
-        background: rgba(208, 206, 220, 0.4);
-        backdrop-filter: blur(5px);
+        color: $white-color;
     }
 
     &__container {
@@ -551,8 +544,10 @@
     }
 }
 
+html,
 body {
-    overscroll-behavior: none;
+    scroll-behavior: unset !important;
+    // scroll-behavior: auto !important;
 }
 
 .palette {
@@ -575,7 +570,6 @@ body {
         flex-wrap: nowrap;
         width: 300%;
         height: fit-content;
-        overscroll-behavior: none;
     }
 
     &__content {
@@ -658,12 +652,12 @@ body {
         gap: 10px;
         margin: 0 0 118px 104px;
 
-        
+
         p {
             position: relative;
             font-size: 20px;
             width: fit-content;
-            
+
             &:last-child {
                 display: none;
             }

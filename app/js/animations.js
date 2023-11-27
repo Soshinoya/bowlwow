@@ -239,14 +239,28 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.fromTo('.logotype__download-button', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .3, delay: 0.6, scrollTrigger: '.logotype__download-button' })
 
     // Секция 'Palette'
-    const paletteColorsBrandQ = gsap.utils.selector('#palette')
-    const paletteColorsCatQ = gsap.utils.selector('#palette-cat')
-    const paletteColorsDogQ = gsap.utils.selector('#palette-dog')
 
     gsap.fromTo('.palette__title', { y: '50%', opacity: 0 }, { scrollTrigger: '.palette', y: 0, opacity: 1, duration: 1 })
     gsap.fromTo('.palette__main-title', { opacity: 0 }, { opacity: 1, duration: 1.5, scrollTrigger: '.palette' })
     gsap.fromTo('.palette__footer-text', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, scrollTrigger: '.palette' })
 
+    // Горизонтальный скролл
+    let paletteSections = gsap.utils.toArray(".palette")
+    gsap.to(paletteSections, {
+        xPercent: -100 * (paletteSections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: '.palette__wrapper',
+            pin: true,
+            scrub: 0.5,
+            snap: 1 / (paletteSections.length - 1),
+            end: window.matchMedia('(max-width: 991px)').matches ? "+=1500" : "+=300%"
+        }
+    })
+
+    const paletteColorsBrandQ = gsap.utils.selector('#palette')
+    const paletteColorsCatQ = gsap.utils.selector('#palette-cat')
+    const paletteColorsDogQ = gsap.utils.selector('#palette-dog')
     gsap.fromTo(paletteColorsBrandQ('.palette__colors-item'), {
         x: '100vw'
     }, {
@@ -274,20 +288,6 @@ window.addEventListener('DOMContentLoaded', () => {
         duration: .5
     })
 
-    // Горизонтальный скролл
-    let paletteSections = gsap.utils.toArray(".palette")
-    gsap.to(paletteSections, {
-        xPercent: -100 * (paletteSections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-            trigger: '.palette__wrapper',
-            pin: true,
-            scrub: 1,
-            snap: 1 / (paletteSections.length - 1),
-            end: window.matchMedia('(max-width: 991px)').matches ? "+=1500" : "+=4000",
-        }
-    })
-
     // Шрифты
     gsap.fromTo('.fonts__title', { y: '200%', opacity: 0 }, { scrollTrigger: '.fonts__title', y: 0, opacity: 1, duration: .5 });
     gsap.fromTo('.fonts-field__title', { opacity: 0 }, { opacity: 1, duration: 1, scrollTrigger: '.fonts' })
@@ -298,8 +298,12 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.fromTo('.photostyle__text--first', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, scrollTrigger: '.photostyle__text--first' })
     gsap.fromTo('.photostyle__text--second', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, delay: .5, scrollTrigger: '.photostyle__text--second' })
     gsap.fromTo('.photostyle__slider > .swiper', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, delay: .5, scrollTrigger: '.photostyle' })
-    
+
     // Материалы
     gsap.fromTo('.materials__title', { y: '200%', opacity: 0 }, { scrollTrigger: '.materials__title', y: 0, opacity: 1, duration: 1 });
     gsap.fromTo('.materials__links-inner', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, delay: .5, scrollTrigger: '.materials__links-inner' })
+
+    const photostyleRect = document.querySelector('.photostyle').getBoundingClientRect()
+
+    window.onscroll = () => window.scrollY >= photostyleRect.top && window.scrollY <= (photostyleRect.top + photostyleRect.height) ? document.querySelector('.promotion-header').classList.add('promotion-header--active') : document.querySelector('.promotion-header').classList.remove('promotion-header--active')
 })
