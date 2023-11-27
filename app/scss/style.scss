@@ -547,7 +547,6 @@
 html,
 body {
     scroll-behavior: unset !important;
-    // scroll-behavior: auto !important;
 }
 
 .palette {
@@ -605,6 +604,7 @@ body {
 
     &__colors {
         display: flex;
+        flex-direction: row;
         width: 100%;
         flex: 0 0 67%;
     }
@@ -624,13 +624,13 @@ body {
     &__colors-item {
         display: flex;
         align-items: flex-end;
-        flex-grow: 1;
 
         cursor: pointer;
-        transition: flex-grow 0.5s $transitionTimingFunc;
+        transition: min-width .3s $transitionTimingFunc;
 
         &__info {
-            display: none;
+            max-height: 0;
+            opacity: 0;
 
             p.palette__colors-item__info-color--active::after {
                 opacity: 1;
@@ -638,10 +638,11 @@ body {
         }
 
         &:hover {
-            flex-grow: 1.5;
-
             .palette__colors-item__info {
                 display: flex;
+                transition: max-height 0.2s linear 0.2s, opacity 0.3s linear 0.3s;
+                max-height: 100%;
+                opacity: 1;
             }
         }
     }
@@ -689,6 +690,32 @@ body {
                 @include bg-img(null, null, "../images/sprite.svg#copy", no-repeat, cover, center center);
             }
         }
+    }
+}
+
+#palette .palette__colors-item {
+    flex-grow: 1;
+
+    .palette__colors-item__info {
+        display: flex;
+        transition: max-width 0.2s linear 0.2s, max-height 0.2s linear 0.2s, opacity 0.3s linear 0.3s;
+        max-height: 100%;
+        opacity: 1;
+    }
+}
+
+#palette-cat .palette__colors-item {
+    min-width: 25%;
+
+    &:hover {
+        min-width: 506px;
+    }
+}
+#palette-dog .palette__colors-item {
+    min-width: 16.6%;
+
+    &:hover {
+        min-width: 506px;
     }
 }
 

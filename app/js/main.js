@@ -64,9 +64,9 @@ paletteColors.forEach(list => {
     if (window.matchMedia('(max-width: 991px) and (min-width: 768px)').matches) {
         list.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 50}px`
     } else if (window.matchMedia('(min-width: 992px)').matches) {
+        // list.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 20}px`
         return
     } else {
-        list.style.marginLeft = `-${paletteContainer.getBoundingClientRect().left + 20}px`
     }
 })
 

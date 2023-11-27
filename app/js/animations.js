@@ -239,28 +239,10 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.fromTo('.logotype__download-button', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .3, delay: 0.6, scrollTrigger: '.logotype__download-button' })
 
     // Секция 'Palette'
-
-    gsap.fromTo('.palette__title', { y: '50%', opacity: 0 }, { scrollTrigger: '.palette', y: 0, opacity: 1, duration: 1 })
-    gsap.fromTo('.palette__main-title', { opacity: 0 }, { opacity: 1, duration: 1.5, scrollTrigger: '.palette' })
-    gsap.fromTo('.palette__footer-text', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, scrollTrigger: '.palette' })
-
-    // Горизонтальный скролл
-    let paletteSections = gsap.utils.toArray(".palette")
-    gsap.to(paletteSections, {
-        xPercent: -100 * (paletteSections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-            trigger: '.palette__wrapper',
-            pin: true,
-            scrub: 0.5,
-            snap: 1 / (paletteSections.length - 1),
-            end: window.matchMedia('(max-width: 991px)').matches ? "+=1500" : "+=300%"
-        }
-    })
-
     const paletteColorsBrandQ = gsap.utils.selector('#palette')
     const paletteColorsCatQ = gsap.utils.selector('#palette-cat')
     const paletteColorsDogQ = gsap.utils.selector('#palette-dog')
+
     gsap.fromTo(paletteColorsBrandQ('.palette__colors-item'), {
         x: '100vw'
     }, {
@@ -286,6 +268,24 @@ window.addEventListener('DOMContentLoaded', () => {
         stagger: 0.1,
         scrollTrigger: '#palette-dog',
         duration: .5
+    })
+
+    gsap.fromTo('.palette__title', { y: '50%', opacity: 0 }, { scrollTrigger: '.palette', y: 0, opacity: 1, duration: 1 })
+    gsap.fromTo('.palette__main-title', { opacity: 0 }, { opacity: 1, duration: 1.5, scrollTrigger: '.palette' })
+    gsap.fromTo('.palette__footer-text', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, scrollTrigger: '.palette' })
+
+    // Горизонтальный скролл
+    let paletteSections = gsap.utils.toArray(".palette")
+    gsap.to(paletteSections, {
+        xPercent: -100 * (paletteSections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: '.palette__wrapper',
+            pin: true,
+            scrub: 1,
+            snap: 1 / (paletteSections.length - 1),
+            end: window.matchMedia('(max-width: 991px)').matches ? "+=1500" : "+=4000"
+        }
     })
 
     // Шрифты
