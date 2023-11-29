@@ -10,6 +10,20 @@
     }
 }
 
+@media (max-width: 1600px) {
+    #palette-dog {
+        .palette__colors-hover--onitem.palette__colors:hover {
+            .palette__colors-item {
+                width: calc(65% / 7);
+            }
+
+            .palette__colors-item:hover {
+                width: 35%;
+            }
+        }
+    }
+}
+
 @media (min-width: 1399px) {
     .palette__colors {
         min-width: calc(67% + ((100vw - 1170px) / 2));
@@ -59,14 +73,6 @@
     .promotion {
         &__body {
             max-width: 450px;
-        }
-    }
-
-    #palette-dog {
-        .palette__colors-hover--onitem.palette__colors:hover {
-            .palette__colors-item {
-                width: calc(50% / 7);
-            }
         }
     }
 
@@ -697,8 +703,8 @@
         }
 
         &__image-dog {
-            height: 400px;
-            left: -25px;
+            height: 350px;
+            left: -80px;
         }
     }
 }
