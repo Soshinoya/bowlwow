@@ -82,6 +82,7 @@ function scripts() {
     'node_modules/smooth-scroll/dist/smooth-scroll.min.js',
     'node_modules/jarallax/dist/jarallax.min.js',
     'app/utils/copyToClipboard.js',
+    'app/utils/isVisible.js',
     'app/utils/autoScroll.js',
     'app/js/animations.js',
     'app/js/main.js'

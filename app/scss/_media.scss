@@ -209,6 +209,12 @@
         flex-direction: column;
         gap: 80px;
 
+        &__wrapper {
+            display: block;
+            width: auto;
+            height: auto;
+        }
+
         &__header {
             display: none;
         }

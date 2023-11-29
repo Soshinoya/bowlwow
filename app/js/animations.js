@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 ScrollTrigger.defaults({
     toggleActions: 'play complete resume reset',
@@ -243,50 +243,34 @@ window.addEventListener('DOMContentLoaded', () => {
     const paletteColorsCatQ = gsap.utils.selector('#palette-cat')
     const paletteColorsDogQ = gsap.utils.selector('#palette-dog')
 
-    gsap.fromTo(paletteColorsBrandQ('.palette__colors-item'), {
-        x: '100vw'
-    }, {
-        x: 0,
-        stagger: 0.1,
-        scrollTrigger: '#palette',
-        duration: .5
-    })
+    gsap.set(paletteColorsBrandQ('.palette__colors-item'), { x: '100vw' })
+    gsap.set(paletteColorsCatQ('.palette__colors-item'), { x: '100vw' })
+    gsap.set(paletteColorsDogQ('.palette__colors-item'), { x: '100vw' })
 
-    gsap.fromTo(paletteColorsCatQ('.palette__colors-item'), {
-        x: '100vw'
-    }, {
-        x: 0,
-        stagger: 0.1,
-        scrollTrigger: '#palette-cat',
-        duration: .5
-    })
-
-    gsap.fromTo(paletteColorsDogQ('.palette__colors-item'), {
-        x: '100vw'
-    }, {
-        x: 0,
-        stagger: 0.1,
-        scrollTrigger: '#palette-dog',
-        duration: .5
-    })
+    if (window.matchMedia('(max-width: 991px)').matches) {
+        gsap.to(paletteColorsBrandQ('.palette__colors-item'), {
+            x: 0,
+            stagger: 0.1,
+            scrollTrigger: '#palette .palette__colors',
+            duration: .5
+        })
+        gsap.to(paletteColorsCatQ('.palette__colors-item'), {
+            x: 0,
+            stagger: 0.1,
+            scrollTrigger: '#palette-cat .palette__colors',
+            duration: .5
+        })
+        gsap.to(paletteColorsDogQ('.palette__colors-item'), {
+            x: 0,
+            stagger: 0.1,
+            scrollTrigger: '#palette-dog .palette__colors',
+            duration: .5
+        })
+    }
 
     gsap.fromTo('.palette__title', { y: '50%', opacity: 0 }, { scrollTrigger: '.palette', y: 0, opacity: 1, duration: 1 })
     gsap.fromTo('.palette__main-title', { opacity: 0 }, { opacity: 1, duration: 1.5, scrollTrigger: '.palette' })
     gsap.fromTo('.palette__footer-text', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, scrollTrigger: '.palette' })
-
-    // Горизонтальный скролл
-    let paletteSections = gsap.utils.toArray(".palette")
-    gsap.to(paletteSections, {
-        xPercent: -100 * (paletteSections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-            trigger: '.palette__wrapper',
-            pin: true,
-            scrub: 1,
-            snap: 1 / (paletteSections.length - 1),
-            end: window.matchMedia('(max-width: 991px)').matches ? "+=1500" : "+=4000"
-        }
-    })
 
     // Шрифты
     gsap.fromTo('.fonts__title', { y: '200%', opacity: 0 }, { scrollTrigger: '.fonts__title', y: 0, opacity: 1, duration: .5 });
@@ -303,7 +287,31 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.fromTo('.materials__title', { y: '200%', opacity: 0 }, { scrollTrigger: '.materials__title', y: 0, opacity: 1, duration: 1 });
     gsap.fromTo('.materials__links-inner', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, duration: .5, delay: .5, scrollTrigger: '.materials__links-inner' })
 
+    // Добавляем обработчик события прокрутки колесика мыши
+    if (window.matchMedia('(min-width: 992px)').matches) {
+        // Горизонтальный скролл
+        let paletteSections = gsap.utils.toArray(".palette")
+        gsap.to(paletteSections, {
+            xPercent: -100 * (paletteSections.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: '.palette__wrapper',
+                pin: true,
+                scrub: .2,
+                end: window.matchMedia('(max-width: 991px)').matches ? "+=1500" : "+=4000"
+            }
+        })
+        window.addEventListener('wheel', e => autoScroll(e, document.querySelectorAll('section.palette')), { passive: false })
+    }
+
     const photostyleRect = document.querySelector('.photostyle').getBoundingClientRect()
 
-    window.onscroll = () => window.scrollY >= photostyleRect.top && window.scrollY <= (photostyleRect.top + photostyleRect.height) ? document.querySelector('.promotion-header').classList.add('promotion-header--active') : document.querySelector('.promotion-header').classList.remove('promotion-header--active')
+    // Делаем цвет меню белым на секции photostyle
+    window.onscroll = () => {
+        if (window.scrollY >= photostyleRect.top && window.scrollY <= (photostyleRect.top + photostyleRect.height)) {
+            document.querySelector('.promotion-header').classList.add('promotion-header--active')
+        } else {
+            document.querySelector('.promotion-header').classList.remove('promotion-header--active')
+        }
+    }
 })
