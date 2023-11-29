@@ -243,9 +243,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const paletteColorsCatQ = gsap.utils.selector('#palette-cat')
     const paletteColorsDogQ = gsap.utils.selector('#palette-dog')
 
-    gsap.set(paletteColorsBrandQ('.palette__colors-item'), { x: '100vw' })
-    gsap.set(paletteColorsCatQ('.palette__colors-item'), { x: '100vw' })
-    gsap.set(paletteColorsDogQ('.palette__colors-item'), { x: '100vw' })
+    gsap.set(paletteColorsBrandQ('.palette__colors-item'), { x: '1000vw' })
+    gsap.set(paletteColorsCatQ('.palette__colors-item'), { x: '1000vw' })
+    gsap.set(paletteColorsDogQ('.palette__colors-item'), { x: '1000vw' })
 
     if (window.matchMedia('(max-width: 991px)').matches) {
         gsap.to(paletteColorsBrandQ('.palette__colors-item'), {
@@ -297,8 +297,8 @@ window.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
                 trigger: '.palette__wrapper',
                 pin: true,
-                scrub: .2,
-                end: window.matchMedia('(max-width: 991px)').matches ? "+=1500" : "+=4000"
+                scrub: 1,
+                end: "+=4000"
             }
         })
         window.addEventListener('wheel', e => autoScroll(e, document.querySelectorAll('section.palette')), { passive: false })

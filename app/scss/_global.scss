@@ -68,11 +68,13 @@ h3 {
     border: 2px solid $black-color;
     border-radius: 5px;
     background-color: transparent;
+    width: fit-content;
     padding: 23px 42px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 30px;
-    width: max-content;
+    color: $black-color;
 
     svg {
         width: 17.5px;

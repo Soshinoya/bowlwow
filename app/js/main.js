@@ -35,6 +35,11 @@ const photostyleSliderConfig = new Swiper('.photostyle__slider > .swiper', {
     }
 })
 
+// Этот код создает элемент с номером телефона и отменяет стандартное поведение при клике на него, предотвращая автоматическое выделение и создание ссылки.
+document.querySelector('#footer-tel').addEventListener('click', e => {
+    e.preventDefault()
+})
+
 // Выход слайдера за пределы контейнера
 const photostyleContainer = document.querySelector('.photostyle > .container')
 const photostyleSliderElem = document.querySelector('.photostyle__slider')

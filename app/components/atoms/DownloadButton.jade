@@ -1,6 +1,5 @@
 mixin downloadButton(link, customClass, text)
-    a(href=link)
-        button(class='download-button #{customClass}')
+    a(class='download-button #{customClass}' href=link)
             svg
                 use(xlink:href="../../images/sprite.svg#download")
             = text

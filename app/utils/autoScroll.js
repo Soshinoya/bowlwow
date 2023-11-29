@@ -83,22 +83,22 @@ const autoScroll = (event, sections) => {
 
     if (visibleSection) {
         if (delta > 0) {
-            if (window.scrollY < paletteOffsetTop) {
-                event.preventDefault()
+            if (window.scrollY < paletteOffsetTop - 100) {
+                // event.preventDefault()
                 gsap.to(window, {
                     scrollTo: '#palette'
                 })
                 const { target, to } = getPaletteColorsFromToConfig('#palette')
                 gsap.to(target, to)
-            } else if (window.scrollY >= paletteOffsetTop && window.scrollY < paletteCatOffsetTop) {
-                event.preventDefault()
+            } else if (window.scrollY >= paletteOffsetTop && window.scrollY < paletteCatOffsetTop - 100) {
+                // event.preventDefault()
                 gsap.to(window, {
                     scrollTo: paletteCatOffsetTop
                 })
                 const { target, to } = getPaletteColorsFromToConfig('#palette-cat')
                 gsap.to(target, to)
-            } else if (window.scrollY >= paletteCatOffsetTop && window.scrollY < paletteDogOffsetTop) {
-                event.preventDefault()
+            } else if (window.scrollY >= paletteCatOffsetTop && window.scrollY < paletteDogOffsetTop - 100) {
+                // event.preventDefault()
                 gsap.to(window, {
                     scrollTo: paletteDogOffsetTop
                 })
@@ -107,22 +107,28 @@ const autoScroll = (event, sections) => {
             }
         } else if (delta < 0) {
             if (window.scrollY > paletteDogOffsetTop) {
-                event.preventDefault()
+                // event.preventDefault()
                 gsap.to(window, {
                     scrollTo: Math.floor($('#palette-dog').offset().top)
                 })
+                const { target, to } = getPaletteColorsFromToConfig('#palette-dog')
+                gsap.to(target, to)
             } else if (window.scrollY > paletteCatOffsetTop && window.scrollY <= paletteDogOffsetTop) {
-                event.preventDefault()
+                // event.preventDefault()
                 gsap.to(window, {
                     scrollTo: paletteCatOffsetTop
                 })
+                const { target, to } = getPaletteColorsFromToConfig('#palette-cat')
+                gsap.to(target, to)
                 gsap.to(paletteColorsDogQ('.palette__colors-item'), { x: '100vw', duration: 1 })
-            } else if (window.scrollY > paletteOffsetTop) {
-                event.preventDefault()
+            } else if (window.scrollY > paletteOffsetTop + 150) {
+                // event.preventDefault()
                 gsap.to(window, {
                     scrollTo: paletteOffsetTop
                 })
                 gsap.to(paletteColorsCatQ('.palette__colors-item'), { x: '100vw', duration: 1 })
+                const { target, to } = getPaletteColorsFromToConfig('#palette')
+                gsap.to(target, to)
             } else if (window.scrollY < (paletteOffsetTop - window.innerHeight / 2)) {
                 gsap.to(paletteColorsBrandQ('.palette__colors-item'), { x: '100vw', duration: 1 })
             }
